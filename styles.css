@@ -1,0 +1,159 @@
+body {
+    color: rgb(192, 133, 61);
+}
+.portada {
+	--primary-color: #c7a17a;
+    --background-color: #f9f5f0;
+    --dark-color: #151515;
+	color: #151515;
+}	
+.banner {
+    background-image: linear-gradient(100deg, #000000, #00000020), url('imagenes/download.jpeg'); /* Cambia esta ruta por la ruta de tu imagen */
+    height: 35rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; /* Alinea el contenido horizontalmente al centro */
+    align-items: center;     /* Alinea el contenido verticalmente al centro */
+}
+
+.content-banner {
+    text-align: center; /* Centra el texto */
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0; /* Quita el padding superior e inferior */
+}
+
+.content-banner p {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.container-categories {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+}
+.content-banner h2 {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.card-category {
+	height: 20rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2rem;
+	gap: 2rem;
+}
+.category-moca {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('imagenes/santito.jpeg');
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+.category-capuchino {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('imagenes/santo.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.category-expreso {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('imagenes/papas.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.card-category p {
+	font-size: 2.5rem;
+	color: #fff;
+	text-transform: capitalize;
+	position: relative;
+}
+
+.card-category p::after {
+	content: '';
+	width: 2.5rem;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	bottom: -1rem;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.card-category span {
+	font-size: 1.6rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+.card-category span:hover {
+	color: var(--primary-color);
+}
+/* Media queries para hacerlo responsive */
+
+@media (max-width: 1200px) {
+    .banner {
+        height: 30rem;
+    }
+
+    .content-banner h2 {
+        font-size: 3rem;
+    }
+
+    .content-banner p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .banner {
+        height: 25rem;
+    }
+
+    .content-banner h2 {
+        font-size: 2.5rem;
+    }
+
+    .content-banner p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 20rem;
+    }
+
+    .content-banner h2 {
+        font-size: 2rem;
+    }
+
+    .content-banner p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner {
+        height: 15rem;
+    }
+
+    .content-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-banner p {
+        font-size: 0.8rem;
+    }
+}
+
