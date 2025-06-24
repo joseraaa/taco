@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades del Mar - SAJO Taquería</title>
+    <meta name="description" content="Frescos sabores del océano en SAJO Taquería. Camarón, atún, pulpo y más especialidades marinas.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .ocean-hero {
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.9), rgba(26, 26, 26, 0.8));
+        }
+        
+        .ocean-card {
+            background: linear-gradient(135deg, #fff 0%, #e6f3ff 100%);
+            border: 2px solid #0077BE;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ocean-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0077BE, #00a8e6);
+        }
+        
+        .ocean-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 119, 190, 0.3);
+        }
+        
+        .ocean-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #0077BE, #00a8e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .fresh-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #00a8e6, #0077BE);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .ocean-note {
+            background: linear-gradient(135deg, #0077BE, #005a8b);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ocean-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        .wave-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff" fill-opacity="0.1"/></svg>') repeat-x;
+            animation: wave 3s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-25px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="mariscos.html">Especialidades del Mar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero ocean-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🌊 Especialidades del Mar</h1>
+            <p class="category-hero-subtitle">Frescos sabores del océano preparados con maestría</p>
+        </div>
+        <div class="wave-animation"></div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Ocean Note -->
+            <div class="ocean-note">
+                <h4><i class="fas fa-anchor"></i> Frescura Garantizada</h4>
+                <p><strong>Ingredientes marinos frescos del día</strong></p>
+                <p>Nuestras especialidades del mar se preparan con los mejores productos del océano, garantizando frescura y sabor excepcional.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Camarón -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card ocean-card menu-item-loading">
+                        <div class="fresh-badge">Fresco</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Camarón</h4>
+                                <p class="menu-item-description">Camarones frescos preparados al estilo de la casa con especias selectas</p>
+                            </div>
+                            <div class="menu-item-price ocean-price">$68</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Camarón Fresco', '$68')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suadero de atún -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card ocean-card menu-item-loading">
+                        <div class="fresh-badge">Fresco</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Suadero de Atún</h4>
+                                <p class="menu-item-description">Corte especial de atún fresco, jugoso y lleno de sabor marino</p>
+                            </div>
+                            <div class="menu-item-price ocean-price">$68</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Suadero de Atún', '$68')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pulpo al ajillo -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card ocean-card menu-item-loading">
+                        <div class="fresh-badge">Fresco</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Pulpo al Ajillo</h4>
+                                <p class="menu-item-description">Pulpo tierno cocido al ajillo con aceite de oliva y especias mediterráneas</p>
+                            </div>
+                            <div class="menu-item-price ocean-price">$75</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Pulpo al Ajillo', '$75')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cazuela de atún -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card ocean-card menu-item-loading">
+                        <div class="fresh-badge">Fresco</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Cazuela de Atún</h4>
+                                <p class="menu-item-description">Atún fresco en cazuela con verduras y salsa especial de la casa</p>
+                            </div>
+                            <div class="menu-item-price ocean-price">$75</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Cazuela de Atún', '$75')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="ninos.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-child"></i>
+                            Para los Santitos
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

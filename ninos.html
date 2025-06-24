@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para los Santitos - SAJO Taquería</title>
+    <meta name="description" content="Menú especial para niños en SAJO Taquería. Platillos deliciosos y apropiados para los más pequeños.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .kids-hero {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(255, 182, 193, 0.8));
+        }
+        
+        .kids-card {
+            background: linear-gradient(135deg, #fff 0%, #fff0f0 100%);
+            border: 2px solid #FF6B6B;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kids-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B, #ff8a8a);
+        }
+        
+        .kids-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+        
+        .kids-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #FF6B6B, #ff8a8a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kids-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .kids-note {
+            background: linear-gradient(135deg, #FF6B6B, #e55555);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .kids-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 107, 107, 0.3);
+            font-size: 1.5rem;
+            animation: floatUp 6s infinite linear;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ninos.html">Para los Santitos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+    </div>
+
+    <!-- Category Hero -->
+    <section class="category-hero kids-hero">
+        <div class="container">
+            <h1 class="category-hero-title">👼 Para los Santitos</h1>
+            <p class="category-hero-subtitle">Platillos especiales diseñados para los más pequeños de la familia</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Kids Note -->
+            <div class="kids-note">
+                <h4><i class="fas fa-heart"></i> Especial para Niños</h4>
+                <p><strong>Platillos pensados especialmente para los más pequeños</strong></p>
+                <p>Preparados con amor y los mejores ingredientes, perfectos para el paladar infantil.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row justify-content-center">
+                <!-- Sabanita de pollo -->
+                <div class="col-lg-6 col-md-8 mb-4">
+                    <div class="menu-item-card kids-card menu-item-loading">
+                        <div class="kids-badge">Santitos</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Sabanita de Pollo</h4>
+                                <p class="menu-item-description">Suave pechuga de pollo envuelta en tortilla de harina, perfecta para los pequeños</p>
+                            </div>
+                            <div class="menu-item-price kids-price">$80</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Sabanita de Pollo para Niños', '$80')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nuggets de pollo -->
+                <div class="col-lg-6 col-md-8 mb-4">
+                    <div class="menu-item-card kids-card menu-item-loading">
+                        <div class="kids-badge">Santitos</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Nuggets de Pollo</h4>
+                                <p class="menu-item-description">Tiernos nuggets de pollo empanizados, crujientes por fuera y suaves por dentro</p>
+                            </div>
+                            <div class="menu-item-price kids-price">$80</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Nuggets de Pollo para Niños', '$80')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fun Section -->
+            <div class="text-center mt-5">
+                <div class="kids-fun-section">
+                    <h3 style="color: #FF6B6B; font-family: 'Dancing Script', cursive; font-size: 2.5rem;">
+                        🎈 ¡Los Santitos son Bienvenidos! 🎈
+                    </h3>
+                    <p style="font-size: 1.2rem; color: #666; margin-top: 1rem;">
+                        Tenemos sillas altas y un ambiente familiar perfecto para disfrutar en familia
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="tacos.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-pepper-hot"></i>
+                            Tacos Tradicionales y Premium
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

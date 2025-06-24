@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacos Tradicionales y Premium - SAJO Taquería</title>
+    <meta name="description" content="Los mejores tacos tradicionales y premium en SAJO Taquería. Todos con 60g de carne en crudo.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .tacos-hero {
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.9), rgba(255, 140, 0, 0.8));
+        }
+        
+        .traditional-section {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            padding: 3rem 0;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .premium-section {
+            background: linear-gradient(135deg, #fff 0%, #f8f4e6 100%);
+            padding: 3rem 0;
+            border-radius: 20px;
+        }
+        
+        .section-divider {
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D32F2F, transparent);
+        }
+        
+        .section-divider h3 {
+            background: white;
+            padding: 0 2rem;
+            display: inline-block;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #D32F2F;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .traditional-card {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            border: 2px solid #FF8C00;
+        }
+        
+        .premium-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f4e6 100%);
+            border: 2px solid #8B4513;
+        }
+        
+        .traditional-card::before {
+            background: linear-gradient(90deg, #FF8C00, #FFD700);
+        }
+        
+        .premium-card::before {
+            background: linear-gradient(90deg, #8B4513, #FFD700);
+        }
+        
+        .traditional-price {
+            background: linear-gradient(45deg, #FF8C00, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .premium-price {
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .traditional-badge {
+            background: linear-gradient(45deg, #FF8C00, #FFD700);
+            color: #8B4513;
+        }
+        
+        .premium-badge {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+        }
+        
+        .tacos-note {
+            background: linear-gradient(135deg, #D32F2F, #b71c1c);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tacos-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="tacos.html">Tacos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero tacos-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🌮 Tacos Tradicionales y Premium</h1>
+            <p class="category-hero-subtitle">La esencia de México en cada bocado</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Tacos Note -->
+            <div class="tacos-note">
+                <h4><i class="fas fa-balance-scale"></i> Peso Garantizado</h4>
+                <p><strong>Todos los tacos tienen 60g de carne en crudo</strong></p>
+                <p>Garantizamos el peso y la calidad en cada taco que servimos.</p>
+            </div>
+
+            <!-- Traditional Tacos Section -->
+            <div class="traditional-section">
+                <div class="section-divider">
+                    <h3>🌮 Tacos Tradicionales</h3>
+                </div>
+                
+                <div class="row">
+                    <!-- Arrachera -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Arrachera</h4>
+                                    <p class="menu-item-description">Clásico taco de arrachera jugosa</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$36</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Arrachera', '$36')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pollo -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Pollo</h4>
+                                    <p class="menu-item-description">Pechuga de pollo marinada y asada</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$36</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Pollo', '$36')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chorizo argentino -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Chorizo Argentino</h4>
+                                    <p class="menu-item-description">Auténtico chorizo argentino</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$36</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Chorizo Argentino', '$36')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barriga -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Barriga</h4>
+                                    <p class="menu-item-description">Barriga de res jugosa y sabrosa</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Barriga', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chistorra -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Chistorra</h4>
+                                    <p class="menu-item-description">Embutido español tradicional</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Chistorra', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Molleja -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Molleja</h4>
+                                    <p class="menu-item-description">Molleja tierna y bien sazonada</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Molleja', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Costilla -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Costilla</h4>
+                                    <p class="menu-item-description">Costilla de res deshebrada</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Costilla', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tripa -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card traditional-card menu-item-loading">
+                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Tripa</h4>
+                                    <p class="menu-item-description">Tripa dorada y crujiente</p>
+                                </div>
+                                <div class="menu-item-price traditional-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco de Tripa', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Tacos Section -->
+            <div class="premium-section">
+                <div class="section-divider">
+                    <h3>👑 Tacos Premium</h3>
+                </div>
+                
+                <div class="row">
+                    <!-- T-Bone -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>T-Bone</h4>
+                                    <p class="menu-item-description">Corte premium T-Bone</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco Premium T-Bone', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rib Eye -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Rib Eye</h4>
+                                    <p class="menu-item-description">El rey de los cortes en taco</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco Premium Rib Eye', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Picaña -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Picaña</h4>
+                                    <p class="menu-item-description">Corte brasileño premium</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco Premium Picaña', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gaonera -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Gaonera</h4>
+                                    <p class="menu-item-description">Corte especial de la casa</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$39</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco Premium Gaonera', '$39')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campechano de carne -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Campechano de Carne</h4>
+                                    <p class="menu-item-description">Mezcla de carnes premium</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$45</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Taco Campechano de Carne', '$45')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volcán de carne -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Volcán de Carne</h4>
+                                    <p class="menu-item-description">Taco volcán con queso derretido</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$54</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Volcán de Carne', '$54')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tuétano -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Tuétano (1 canoa)</h4>
+                                    <p class="menu-item-description">Delicioso tuétano asado</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$55</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Tuétano (1 canoa)', '$55')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Queso extra -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="menu-item-card premium-card menu-item-loading">
+                            <div class="premium-badge kids-badge">Extra</div>
+                            <div class="menu-item-header">
+                                <div class="menu-item-info">
+                                    <h4>Queso Extra</h4>
+                                    <p class="menu-item-description">Porción adicional de queso</p>
+                                </div>
+                                <div class="menu-item-price premium-price">$15</div>
+                            </div>
+                            <div class="menu-item-actions">
+                                <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn btn-share" onclick="shareItem('Queso Extra', '$15')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="btn-cart">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="entradas.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-utensils"></i>
+                            Entradas
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

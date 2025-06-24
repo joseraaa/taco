@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopas y Ensaladas - SAJO Taquería</title>
+    <meta name="description" content="Deliciosas sopas y ensaladas frescas en SAJO Taquería. Opciones reconfortantes y saludables.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="sopas-ensaladas.html">Sopas y Ensaladas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🥣 Sopas y Ensaladas</h1>
+            <p class="category-hero-subtitle">Opciones frescas y reconfortantes para complementar tu experiencia</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Category Info -->
+            <div class="category-info">
+                <h3>Sopas y Ensaladas Frescas</h3>
+                <p>Preparadas con ingredientes frescos del día. Perfectas como entrada o acompañamiento de tus platillos principales.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Jugo de carne -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Jugo de Carne</h4>
+                                <p class="menu-item-description">Caldo concentrado de carne con verduras, reconfortante y nutritivo</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Jugo de Carne', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Crema del día -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Crema del Día</h4>
+                                <p class="menu-item-description">Crema especial preparada diariamente con ingredientes de temporada</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Crema del Día', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frijoles charros -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Frijoles Charros</h4>
+                                <p class="menu-item-description">Frijoles tradicionales con chorizo, tocino y verduras</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Frijoles Charros', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sopa de tortilla -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Sopa de Tortilla</h4>
+                                <p class="menu-item-description">Sopa tradicional mexicana con tortilla frita, queso y aguacate</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Sopa de Tortilla', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ensalada verde -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Ensalada Verde</h4>
+                                <p class="menu-item-description">Mix de lechugas frescas con aderezo de la casa</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Ensalada Verde', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ensalada frutos rojos -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Ensalada Frutos Rojos</h4>
+                                <p class="menu-item-description">Ensalada gourmet con frutos rojos, nueces y vinagreta especial</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Ensalada Frutos Rojos', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verduras asadas -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Verduras Asadas</h4>
+                                <p class="menu-item-description">Selección de verduras de temporada asadas a la parrilla</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Verduras Asadas', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="cortes.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-cut"></i>
+                            Cortes Premium
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

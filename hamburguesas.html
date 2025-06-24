@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburguesas Gourmet - SAJO Taquería</title>
+    <meta name="description" content="Hamburguesas gourmet con pan artesanal y carne de calidad en SAJO Taquería. Sin carne molida.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .burger-hero {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.9), rgba(26, 26, 26, 0.8));
+        }
+        
+        .burger-note {
+            background: linear-gradient(135deg, #FF8C00, #FF6347);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .burger-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        .burger-card {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            border: 2px solid #FF8C00;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .burger-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.3);
+            border-color: #FF6347;
+        }
+        
+        .burger-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8C00, #FFD700);
+        }
+        
+        .burger-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #FF8C00, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gourmet-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="hamburguesas.html">Hamburguesas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero burger-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🍔 Hamburguesas Gourmet</h1>
+            <p class="category-hero-subtitle">Pan artesanal y carne de calidad, sin carne molida</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Burger Note -->
+            <div class="burger-note">
+                <h4><i class="fas fa-star"></i> Calidad Gourmet</h4>
+                <p><strong>Todas nuestras hamburguesas están hechas con pan artesanal y carne de calidad</strong></p>
+                <p>No usamos carne molida. Cada hamburguesa es una experiencia gastronómica única.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Choripán -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Choripán</h4>
+                                <p class="menu-item-description">Chorizo argentino premium en pan artesanal con chimichurri</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$99</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Choripán Gourmet', '$99')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avaricia -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Avaricia</h4>
+                                <p class="menu-item-description">Hamburguesa con doble carne, quesos premium y ingredientes selectos</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$195</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Avaricia', '$195')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Envidia -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Envidia</h4>
+                                <p class="menu-item-description">La hamburguesa que todos querrán probar, con ingredientes únicos</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$210</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Envidia', '$210')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lujuria -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Lujuria</h4>
+                                <p class="menu-item-description">Tentadora combinación de sabores que despertará tus sentidos</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$175</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Lujuria', '$175')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soberbia -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Soberbia</h4>
+                                <p class="menu-item-description">Hamburguesa imponente con los mejores ingredientes de la casa</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$195</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Soberbia', '$195')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gula -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Gula</h4>
+                                <p class="menu-item-description">Para los más hambrientos, una hamburguesa abundante y deliciosa</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$175</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Gula', '$175')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ira -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Ira</h4>
+                                <p class="menu-item-description">Hamburguesa picante que desatará tu pasión por los sabores intensos</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$210</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Ira', '$210')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pereza -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card burger-card menu-item-loading">
+                        <div class="gourmet-badge">Gourmet</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Pereza</h4>
+                                <p class="menu-item-description">La hamburguesa perfecta para relajarse y disfrutar sin prisa</p>
+                            </div>
+                            <div class="menu-item-price burger-price">$250</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Pereza', '$250')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="mariscos.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-fish"></i>
+                            Especialidades del Mar
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>
