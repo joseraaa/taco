@@ -50,6 +50,18 @@
                     <span class="logo-subtitle">Taquería</span>
                 </a>
                 
+                <div class="social-icons d-none d-lg-flex">
+                    <a href="https://www.facebook.com/profile.php?id=61560770169814" target="_blank" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sajo_grill_cocina?igsh=aWV2a21sMDU5ajRm" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" onclick="openWhatsApp()" class="social-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                
                 <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span></span>
                     <span></span>
@@ -71,6 +83,19 @@
                             <a class="nav-link" href="#contact">Contacto</a>
                         </li>
                     </ul>
+                    
+                    <!-- Mobile Social Icons -->
+                    <div class="mobile-social d-lg-none mt-3">
+                        <a href="https://www.facebook.com/profile.php?id=61560770169814" target="_blank" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sajo_grill_cocina?igsh=aWV2a21sMDU5ajRm" target="_blank" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" onclick="openWhatsApp()" class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -97,13 +122,14 @@
                 </p>
                 
                 <div class="hero-buttons animate-slide-up delay-2">
-                    <button class="btn btn-primary btn-cta" id="hero-menu-btn">
+                    <a href="menu-principal.html" class="btn btn-primary btn-cta menu-cta-btn" id="hero-menu-btn">
                         <i class="fas fa-utensils"></i>
-                        Ver Menú
-                    </button>
+                        <span>Ver Menú Completo</span>
+                        <div class="btn-shine"></div>
+                    </a>
                     <button class="btn btn-outline-light btn-cta" onclick="openWhatsApp()">
                         <i class="fab fa-whatsapp"></i>
-                        Ordenar Ahora
+                        <span>Ordenar Ahora</span>
                     </button>
                 </div>
             </div>
@@ -135,313 +161,124 @@
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
+    <!-- Menu Preview Section -->
+    <section id="menu" class="menu-preview-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Nuestro Menú</h2>
-                <p class="section-subtitle">Sabores auténticos que conquistan paladares</p>
+                <h2 class="section-title animate-on-scroll">Nuestro Menú</h2>
+                <p class="section-subtitle animate-on-scroll">Sabores auténticos que conquistan paladares</p>
             </div>
             
-            <div class="menu-categories">
-                <div class="category-tabs">
-                    <button class="category-tab active" data-category="tacos">
-                        <i class="fas fa-pepper-hot"></i>
-                        Tacos
-                    </button>
-                    <button class="category-tab" data-category="cortes">
+            <div class="menu-preview-grid">
+                <div class="menu-preview-card animate-on-scroll" data-delay="0.1">
+                    <div class="preview-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Entradas</h4>
+                    <p>Deliciosos aperitivos para comenzar</p>
+                    <span class="item-count">15+ opciones</span>
+                </div>
+                
+                <div class="menu-preview-card animate-on-scroll" data-delay="0.2">
+                    <div class="preview-icon premium">
                         <i class="fas fa-cut"></i>
-                        Cortes
-                    </button>
-                    <button class="category-tab" data-category="mariscos">
+                    </div>
+                    <h4>Cortes Premium</h4>
+                    <p>Los mejores cortes de carne</p>
+                    <span class="item-count premium">4 cortes</span>
+                </div>
+                
+                <div class="menu-preview-card animate-on-scroll" data-delay="0.3">
+                    <div class="preview-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <h4>Tacos</h4>
+                    <p>Tradicionales y Premium</p>
+                    <span class="item-count">15+ variedades</span>
+                </div>
+                
+                <div class="menu-preview-card animate-on-scroll" data-delay="0.4">
+                    <div class="preview-icon ocean">
                         <i class="fas fa-fish"></i>
-                        Mariscos
-                    </button>
-                    <button class="category-tab" data-category="especialidades">
-                        <i class="fas fa-star"></i>
-                        Especialidades
-                    </button>
-                    <button class="category-tab" data-category="bebidas">
-                        <i class="fas fa-cocktail"></i>
-                        Bebidas
-                    </button>
-                    <button class="category-tab" data-category="postres">
-                        <i class="fas fa-ice-cream"></i>
-                        Postres
-                    </button>
+                    </div>
+                    <h4>Especialidades del Mar</h4>
+                    <p>Frescos sabores del océano</p>
+                    <span class="item-count">4 especialidades</span>
                 </div>
-                
-                <!-- Tacos Category -->
-                <div class="menu-category active" id="tacos">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="imagenes/papas.jpg" alt="Santo Taco">
-                                    <div class="item-badges">
-                                        <span class="badge badge-popular">Más Vendido</span>
-                                        <span class="badge badge-spicy">🌶️</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Santo Taco</h4>
-                                        <span class="price">$85</span>
-                                    </div>
-                                    <p class="item-description">Tortilla de harina de 30 cm, tocino, queso, arrachera, pimientos con cebolla morada y crocante</p>
-                                    <button class="btn btn-sm btn-outline-primary" onclick="mostrarAlerta()">Ver Detalles</button>
-                                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="menu-principal.html" class="btn btn-menu-complete">
+                    <i class="fas fa-book-open"></i>
+                    <span>Ver Menú Completo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section class="featured-dishes">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Platillos Destacados</h2>
+                <p class="section-subtitle animate-on-scroll">Nuestras especialidades más populares</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="featured-dish-card animate-on-scroll" data-delay="0.1">
+                        <div class="dish-image">
+                            <img src="imagenes/papas.jpg" alt="Santo Taco">
+                            <div class="dish-overlay">
+                                <button class="btn btn-dish-detail" onclick="mostrarAlerta()">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalles
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="imagenes/santito.jpeg" alt="Santito">
-                                    <div class="item-badges">
-                                        <span class="badge badge-spicy">🌶️🌶️</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Santito</h4>
-                                        <span class="price">$75</span>
-                                    </div>
-                                    <p class="item-description">Chorizo argentino, barriga y tuétano en tortilla artesanal</p>
-                                    <button class="btn btn-sm btn-outline-primary" onclick="mostrarAlerta2()">Ver Detalles</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/4958792/pexels-photo-4958792.jpeg" alt="Taco al Pastor">
-                                    <div class="item-badges">
-                                        <span class="badge badge-popular">Clásico</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Taco al Pastor</h4>
-                                        <span class="price">$35</span>
-                                    </div>
-                                    <p class="item-description">Carne de cerdo marinada con achiote, piña, cebolla y cilantro</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg" alt="Taco de Carnitas">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Taco de Carnitas</h4>
-                                        <span class="price">$40</span>
-                                    </div>
-                                    <p class="item-description">Cerdo cocido lentamente, crujiente por fuera, suave por dentro</p>
-                                </div>
-                            </div>
+                        <div class="dish-content">
+                            <h4>Santo Taco</h4>
+                            <p>Tortilla de harina de 30 cm, tocino, queso, arrachera</p>
+                            <div class="dish-price">$85</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Cortes Category -->
-                <div class="menu-category" id="cortes">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="imagenes/santo.jpg" alt="Arrachera Premium">
-                                    <div class="item-badges">
-                                        <span class="badge badge-premium">Premium</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Arrachera Premium</h4>
-                                        <span class="price">$280</span>
-                                    </div>
-                                    <p class="item-description">250g de arrachera, queso cheddar, queso gouda, mantequilla y aguacate</p>
-                                    <button class="btn btn-sm btn-outline-primary" onclick="mostrarAlerta3()">Ver Detalles</button>
-                                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="featured-dish-card animate-on-scroll" data-delay="0.2">
+                        <div class="dish-image">
+                            <img src="imagenes/santito.jpeg" alt="Santito">
+                            <div class="dish-overlay">
+                                <button class="btn btn-dish-detail" onclick="mostrarAlerta2()">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalles
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg" alt="Ribeye">
-                                    <div class="item-badges">
-                                        <span class="badge badge-premium">Premium</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Ribeye SAJO</h4>
-                                        <span class="price">$450</span>
-                                    </div>
-                                    <p class="item-description">Corte premium de 300g, término al gusto con guarnición</p>
-                                </div>
-                            </div>
+                        <div class="dish-content">
+                            <h4>Santito</h4>
+                            <p>Chorizo argentino, barriga y tuétano</p>
+                            <div class="dish-price">$75</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Mariscos Category -->
-                <div class="menu-category" id="mariscos">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg" alt="Tacos de Camarón">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Tacos de Camarón</h4>
-                                        <span class="price">$95</span>
-                                    </div>
-                                    <p class="item-description">Camarones frescos empanizados con salsa chipotle</p>
-                                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="featured-dish-card animate-on-scroll" data-delay="0.3">
+                        <div class="dish-image">
+                            <img src="imagenes/santo.jpg" alt="Arrachera Premium">
+                            <div class="dish-overlay">
+                                <button class="btn btn-dish-detail" onclick="mostrarAlerta3()">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalles
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1833336/pexels-photo-1833336.jpeg" alt="Pescado a la Plancha">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Pescado a la Plancha</h4>
-                                        <span class="price">$180</span>
-                                    </div>
-                                    <p class="item-description">Filete de pescado fresco con vegetales asados</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Especialidades Category -->
-                <div class="menu-category" id="especialidades">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg" alt="Molcajete SAJO">
-                                    <div class="item-badges">
-                                        <span class="badge badge-popular">Especialidad</span>
-                                        <span class="badge badge-spicy">🌶️🌶️</span>
-                                    </div>
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Molcajete SAJO</h4>
-                                        <span class="price">$320</span>
-                                    </div>
-                                    <p class="item-description">Arrachera, chorizo, camarones y nopales en salsa verde</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/2456435/pexels-photo-2456435.jpeg" alt="Parrillada Familiar">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Parrillada Familiar</h4>
-                                        <span class="price">$580</span>
-                                    </div>
-                                    <p class="item-description">Para 4 personas: arrachera, chorizo, pollo y guarniciones</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Bebidas Category -->
-                <div class="menu-category" id="bebidas">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg" alt="Cerveza Nacional">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Cerveza Nacional</h4>
-                                        <span class="price">$35</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1304540/pexels-photo-1304540.jpeg" alt="Agua Fresca">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Agua Fresca</h4>
-                                        <span class="price">$25</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1304540/pexels-photo-1304540.jpeg" alt="Refresco">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Refresco</h4>
-                                        <span class="price">$30</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Postres Category -->
-                <div class="menu-category" id="postres">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg" alt="Flan Napolitano">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Flan Napolitano</h4>
-                                        <span class="price">$45</span>
-                                    </div>
-                                    <p class="item-description">Flan casero con caramelo natural</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-12 mb-4">
-                            <div class="menu-item">
-                                <div class="menu-item-image">
-                                    <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg" alt="Helado Frito">
-                                </div>
-                                <div class="menu-item-content">
-                                    <div class="item-header">
-                                        <h4>Helado Frito</h4>
-                                        <span class="price">$55</span>
-                                    </div>
-                                    <p class="item-description">Helado de vainilla empanizado con miel</p>
-                                </div>
-                            </div>
+                        <div class="dish-content">
+                            <h4>Arrachera Premium</h4>
+                            <p>250g de arrachera con quesos y aguacate</p>
+                            <div class="dish-price">$280</div>
                         </div>
                     </div>
                 </div>
@@ -453,56 +290,62 @@
     <section id="location" class="location-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Nuestra Ubicación</h2>
-                <p class="section-subtitle">Ven y disfruta la mejor experiencia gastronómica</p>
+                <h2 class="section-title animate-on-scroll">Nuestra Ubicación</h2>
+                <p class="section-subtitle animate-on-scroll">Ven y disfruta la mejor experiencia gastronómica</p>
             </div>
             
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4">
-                    <div class="location-info">
+                    <div class="location-info animate-on-scroll" data-delay="0.1">
                         <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
                                 <h5>Dirección</h5>
                                 <p>Calle Principal #123, Centro, Tlaxcala</p>
                             </div>
                         </div>
                         
                         <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
                                 <h5>Horarios</h5>
                                 <p>Lun - Dom: 12:00 PM - 11:00 PM</p>
                             </div>
                         </div>
                         
                         <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
                                 <h5>Teléfono</h5>
                                 <p>246-141-1327</p>
                             </div>
                         </div>
                         
                         <div class="location-actions">
-                            <button class="btn btn-primary" onclick="openGoogleMaps()">
+                            <button class="btn btn-location-action btn-maps" onclick="openGoogleMaps()">
                                 <i class="fas fa-directions"></i>
-                                Cómo Llegar
+                                <span>Cómo Llegar</span>
                             </button>
-                            <button class="btn btn-success" onclick="callRestaurant()">
+                            <button class="btn btn-location-action btn-call" onclick="callRestaurant()">
                                 <i class="fas fa-phone"></i>
-                                Llamar
+                                <span>Llamar</span>
                             </button>
-                            <button class="btn btn-whatsapp" onclick="openWhatsApp()">
+                            <button class="btn btn-location-action btn-whatsapp-location" onclick="openWhatsApp()">
                                 <i class="fab fa-whatsapp"></i>
-                                WhatsApp
+                                <span>WhatsApp</span>
                             </button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-6">
-                    <div class="map-container">
+                    <div class="map-container animate-on-scroll" data-delay="0.2">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d-98.2!3d19.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzAwLjAiTiA5OMKwMTInMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
                             width="100%" 
@@ -512,32 +355,64 @@
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+                        <div class="map-overlay">
+                            <div class="map-info">
+                                <h6>SAJO Taquería</h6>
+                                <p>Centro, Tlaxcala</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Media Section -->
-    <section id="contact" class="social-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Síguenos</h2>
-                <p class="section-subtitle">Mantente al día con nuestras promociones y novedades</p>
+                <h2 class="section-title animate-on-scroll">Síguenos</h2>
+                <p class="section-subtitle animate-on-scroll">Mantente al día con nuestras promociones y novedades</p>
             </div>
             
-            <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61560770169814" target="_blank" class="social-link facebook">
-                    <i class="fab fa-facebook-f"></i>
-                    <span>Facebook</span>
+            <div class="social-links-grid">
+                <a href="https://www.facebook.com/profile.php?id=61560770169814" target="_blank" class="social-link-card facebook animate-on-scroll" data-delay="0.1">
+                    <div class="social-icon-large">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-content">
+                        <h4>Facebook</h4>
+                        <p>Síguenos para promociones exclusivas</p>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
-                <a href="https://www.instagram.com/sajo_grill_cocina?igsh=aWV2a21sMDU5ajRm" target="_blank" class="social-link instagram">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
+                
+                <a href="https://www.instagram.com/sajo_grill_cocina?igsh=aWV2a21sMDU5ajRm" target="_blank" class="social-link-card instagram animate-on-scroll" data-delay="0.2">
+                    <div class="social-icon-large">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-content">
+                        <h4>Instagram</h4>
+                        <p>Mira nuestros platillos más deliciosos</p>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
-                <a href="#" onclick="openWhatsApp()" class="social-link whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
+                
+                <a href="#" onclick="openWhatsApp()" class="social-link-card whatsapp animate-on-scroll" data-delay="0.3">
+                    <div class="social-icon-large">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="social-content">
+                        <h4>WhatsApp</h4>
+                        <p>Haz tu pedido directamente</p>
+                    </div>
+                    <div class="social-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
             </div>
         </div>
@@ -579,9 +454,15 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- WhatsApp Float Button -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-pulse"></div>
     </div>
 
     <!-- Scripts -->

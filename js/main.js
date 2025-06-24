@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initializeLoading();
     initializeNavbar();
-    initializeMenuTabs();
     initializeAnimations();
     initializePromotions();
     initializeSmoothScrolling();
+    initializeBackToTop();
+    initializeScrollAnimations();
 });
 
 // Loading Screen
@@ -19,7 +20,9 @@ function initializeLoading() {
             loadingScreen.classList.add('hidden');
             // Remove from DOM after animation
             setTimeout(() => {
-                loadingScreen.remove();
+                if (loadingScreen) {
+                    loadingScreen.remove();
+                }
             }, 500);
         }, 1500);
     });
@@ -72,88 +75,48 @@ function initializeNavbar() {
     });
 }
 
-// Menu Tabs Functionality
-function initializeMenuTabs() {
-    const categoryTabs = document.querySelectorAll('.category-tab');
-    const menuCategories = document.querySelectorAll('.menu-category');
+// Animations
+function initializeAnimations() {
+    // Menu button click handlers with transition effect
     const menuBtn = document.getElementById('menu-btn');
     const heroMenuBtn = document.getElementById('hero-menu-btn');
     
-    // Tab switching
-    categoryTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            const targetCategory = this.getAttribute('data-category');
-            
-            // Remove active class from all tabs and categories
-            categoryTabs.forEach(t => t.classList.remove('active'));
-            menuCategories.forEach(c => c.classList.remove('active'));
-            
-            // Add active class to clicked tab and corresponding category
-            this.classList.add('active');
-            document.getElementById(targetCategory).classList.add('active');
-            
-            // Add animation effect
-            const activeCategory = document.getElementById(targetCategory);
-            activeCategory.style.opacity = '0';
-            activeCategory.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                activeCategory.style.opacity = '1';
-                activeCategory.style.transform = 'translateY(0)';
-            }, 100);
-        });
-    });
-    
-    // Menu button click handlers
     [menuBtn, heroMenuBtn].forEach(btn => {
         if (btn) {
             btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.getElementById('menu').scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (this.getAttribute('href') === 'menu-principal.html') {
+                    e.preventDefault();
+                    
+                    // Add transition effect
+                    document.body.style.opacity = '0.8';
+                    document.body.style.transform = 'scale(0.98)';
+                    document.body.style.transition = 'all 0.3s ease';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'menu-principal.html';
+                    }, 300);
+                } else {
+                    e.preventDefault();
+                    document.getElementById('menu').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         }
     });
-}
-
-// Animations
-function initializeAnimations() {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.menu-item, .info-item, .social-link');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Menu item hover effects
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-    
-    // Button click animations
+    // Button hover effects
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px) scale(1.02)';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        // Button click animations
         btn.addEventListener('click', function(e) {
             // Create ripple effect
             const ripple = document.createElement('span');
@@ -174,6 +137,71 @@ function initializeAnimations() {
             }, 600);
         });
     });
+    
+    // Card hover effects
+    const cards = document.querySelectorAll('.menu-preview-card, .featured-dish-card, .social-link-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Scroll Animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.delay || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('animated');
+                }, delay * 1000);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Back to Top Button
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Add bounce animation
+            this.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    }
 }
 
 // Promotions Slider
@@ -221,7 +249,9 @@ function openGoogleMaps() {
     const url = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
     
     // Add click animation
-    animateButton(event.target);
+    if (event && event.target) {
+        animateButton(event.target);
+    }
     
     window.open(url, '_blank');
 }
@@ -230,23 +260,32 @@ function callRestaurant() {
     const phoneNumber = "2461411327";
     
     // Add click animation
-    animateButton(event.target);
+    if (event && event.target) {
+        animateButton(event.target);
+    }
     
     // Show confirmation dialog
-    Swal.fire({
-        title: '¿Llamar a SAJO Taquería?',
-        text: `Se abrirá tu aplicación de teléfono para llamar al ${phoneNumber}`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#D32F2F',
-        cancelButtonColor: '#6c757d',
-        confirmButtonText: 'Llamar',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
+    if (typeof Swal !== 'undefined') {
+        Swal.fire({
+            title: '¿Llamar a SAJO Taquería?',
+            text: `Se abrirá tu aplicación de teléfono para llamar al ${phoneNumber}`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#D32F2F',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Llamar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `tel:${phoneNumber}`;
+            }
+        });
+    } else {
+        // Fallback if SweetAlert is not available
+        if (confirm('¿Deseas llamar a SAJO Taquería?')) {
             window.location.href = `tel:${phoneNumber}`;
         }
-    });
+    }
 }
 
 function openWhatsApp() {
@@ -265,9 +304,10 @@ function openWhatsApp() {
 
 // Utility Functions
 function animateButton(button) {
+    const originalTransform = button.style.transform;
     button.style.transform = 'scale(0.95)';
     setTimeout(() => {
-        button.style.transform = 'scale(1)';
+        button.style.transform = originalTransform || 'scale(1)';
     }, 150);
 }
 
@@ -310,7 +350,7 @@ function debounce(func, wait) {
 
 // Optimize scroll events
 const optimizedScrollHandler = debounce(function() {
-    // Scroll-based animations and effects
+    // Scroll-based animations and effects are handled in individual functions
 }, 10);
 
 window.addEventListener('scroll', optimizedScrollHandler);
@@ -321,6 +361,45 @@ window.addEventListener('error', function(e) {
     // Could implement error reporting here
 });
 
+// Analytics tracking (placeholder for future implementation)
+function trackEvent(category, action, label) {
+    // Google Analytics or other tracking service
+    console.log(`Event tracked: ${category} - ${action} - ${label}`);
+}
+
+// Track interactions
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('social-icon') || e.target.closest('.social-icon')) {
+        trackEvent('Social', 'Click', 'Header Social Icon');
+    }
+    
+    if (e.target.classList.contains('social-link-card') || e.target.closest('.social-link-card')) {
+        trackEvent('Social', 'Click', 'Footer Social Card');
+    }
+    
+    if (e.target.classList.contains('btn-menu-complete') || e.target.closest('.btn-menu-complete')) {
+        trackEvent('Menu', 'Click', 'View Complete Menu');
+    }
+});
+
+// Preload critical images
+function preloadImages() {
+    const criticalImages = [
+        'imagenes/Imagen de WhatsApp 2024-10-08 a las 23.28.13_419c6576.jpg',
+        'imagenes/papas.jpg',
+        'imagenes/santito.jpeg',
+        'imagenes/santo.jpg'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Initialize image preloading
+preloadImages();
+
 // Service Worker registration (for future PWA features)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -330,19 +409,25 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Analytics tracking (placeholder for future implementation)
-function trackEvent(category, action, label) {
-    // Google Analytics or other tracking service
-    console.log(`Event tracked: ${category} - ${action} - ${label}`);
+// Lazy loading for images (if needed)
+function initializeLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
 }
 
-// Track menu interactions
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('category-tab')) {
-        trackEvent('Menu', 'Category Change', e.target.textContent.trim());
-    }
-    
-    if (e.target.classList.contains('social-link')) {
-        trackEvent('Social', 'Click', e.target.querySelector('span').textContent);
-    }
-});
+// Initialize lazy loading
+initializeLazyLoading();
