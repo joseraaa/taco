@@ -35,6 +35,434 @@
         "url": "https://sajotaqueria.com"
     }
     </script>
+    
+    <style>
+        /* Promotions Carousel Styles */
+        .promotions-carousel {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-slide {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(211, 47, 47, 0.8), rgba(26, 26, 26, 0.6));
+            z-index: 1;
+        }
+        
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .carousel-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255, 215, 0, 0.5); }
+        }
+        
+        .carousel-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .carousel-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin-bottom: 1.5rem;
+        }
+        
+        .carousel-btn {
+            background: linear-gradient(45deg, #D32F2F, #b71c1c);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
+        }
+        
+        .carousel-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.6);
+            background: linear-gradient(45deg, #b71c1c, #8B0000);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 3;
+        }
+        
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-prev {
+            left: 20px;
+        }
+        
+        .carousel-next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: #FFD700;
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+        
+        /* About Us Section */
+        .about-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grill" patternUnits="userSpaceOnUse" width="50" height="50"><rect width="50" height="50" fill="%23000"/><circle cx="25" cy="25" r="1" fill="%23333" opacity="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grill)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .about-highlight {
+            background: linear-gradient(45deg, #D32F2F, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        /* Payment Methods Section */
+        .payment-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .payment-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: #D32F2F;
+        }
+        
+        .payment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #D32F2F;
+            animation: paymentPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes paymentPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .payment-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .delivery-info {
+            background: linear-gradient(135deg, #D32F2F, #b71c1c);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .delivery-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        /* Enhanced Location Section */
+        .enhanced-location {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .map-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+        
+        .map-container iframe {
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+        }
+        
+        .map-info h6 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #D32F2F;
+            font-size: 1.1rem;
+        }
+        
+        .map-info p {
+            color: #666;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        
+        .map-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .map-btn {
+            background: linear-gradient(45deg, #D32F2F, #b71c1c);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+        }
+        
+        .map-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.5);
+            color: white;
+            background: linear-gradient(45deg, #b71c1c, #8B0000);
+        }
+        
+        .map-btn.secondary {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .map-btn.secondary:hover {
+            background: linear-gradient(45deg, #128C7E, #0D7377);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carousel-title {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .carousel-price {
+                font-size: 2rem;
+            }
+            
+            .carousel-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-text {
+                font-size: 1.1rem;
+            }
+            
+            .payment-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .map-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .map-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .carousel-slide {
+                height: 300px;
+            }
+            
+            .carousel-content {
+                padding: 1rem;
+            }
+            
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Animation -->
@@ -79,6 +507,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#menu" id="menu-btn">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#location">Ubicación</a>
@@ -145,21 +576,98 @@
         </div>
     </section>
 
-    <!-- Promotions Banner -->
-    <section class="promotions-banner">
+    <!-- Promotions Carousel -->
+    <section class="promotions-carousel">
         <div class="container">
-            <div class="promo-slider">
-                <div class="promo-item active">
-                    <i class="fas fa-fire"></i>
-                    <span>¡Martes de Arrachera 2x1!</span>
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">🎉 Promociones Especiales</h2>
+                <p class="section-subtitle animate-on-scroll">No te pierdas nuestras ofertas increíbles</p>
+            </div>
+            
+            <div class="carousel-container" id="promotionsCarousel">
+                <!-- Slide 1: 2x1 Tacos -->
+                <div class="carousel-slide active" style="background-image: linear-gradient(rgba(211, 47, 47, 0.8), rgba(26, 26, 26, 0.6)), url('imagenes/download.jpeg');">
+                    <div class="carousel-content">
+                        <h3 class="carousel-title">2x1 en Tacos</h3>
+                        <p class="carousel-subtitle">¡Todos los martes disfruta el doble de sabor!</p>
+                        <div class="carousel-price">Martes de Tacos</div>
+                        <button class="carousel-btn" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Ordenar Ahora
+                        </button>
+                    </div>
                 </div>
-                <div class="promo-item">
-                    <i class="fas fa-beer"></i>
-                    <span>Viernes: Cerveza GRATIS con tu orden</span>
+                
+                <!-- Slide 2: Combo Hamburguesa -->
+                <div class="carousel-slide" style="background-image: linear-gradient(rgba(255, 140, 0, 0.8), rgba(26, 26, 26, 0.6)), url('imagenes/download.jpeg');">
+                    <div class="carousel-content">
+                        <h3 class="carousel-title">Combo Hamburguesa</h3>
+                        <p class="carousel-subtitle">Hamburguesa gourmet + bebida</p>
+                        <div class="carousel-price">$199</div>
+                        <button class="carousel-btn" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Ordenar Ahora
+                        </button>
+                    </div>
                 </div>
-                <div class="promo-item">
-                    <i class="fas fa-taco-hard"></i>
-                    <span>Miércoles: Tacos 2x1 todo el día</span>
+                
+                <!-- Slide 3: Parrillada para 2 -->
+                <div class="carousel-slide" style="background-image: linear-gradient(rgba(139, 69, 19, 0.8), rgba(26, 26, 26, 0.6)), url('imagenes/download.jpeg');">
+                    <div class="carousel-content">
+                        <h3 class="carousel-title">Parrillada para 2</h3>
+                        <p class="carousel-subtitle">¡Con bebida gratis incluida!</p>
+                        <div class="carousel-price">Oferta Especial</div>
+                        <button class="carousel-btn" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Ordenar Ahora
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Slide 4: Postres 2x1 -->
+                <div class="carousel-slide" style="background-image: linear-gradient(rgba(139, 69, 19, 0.8), rgba(210, 180, 140, 0.6)), url('imagenes/download.jpeg');">
+                    <div class="carousel-content">
+                        <h3 class="carousel-title">Postres 2x1</h3>
+                        <p class="carousel-subtitle">¡Domingos dulces en familia!</p>
+                        <div class="carousel-price">Domingos</div>
+                        <button class="carousel-btn" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Ordenar Ahora
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav carousel-next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button class="carousel-indicator active" onclick="goToSlide(0)"></button>
+                    <button class="carousel-indicator" onclick="goToSlide(1)"></button>
+                    <button class="carousel-indicator" onclick="goToSlide(2)"></button>
+                    <button class="carousel-indicator" onclick="goToSlide(3)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content animate-on-scroll">
+                <h2 class="about-title">¿Quiénes Somos?</h2>
+                <p class="about-text">
+                    Somos <span class="about-highlight">SAJO Grill & Cocina</span>, una taquería de alma norteña con pasión por la carne al punto perfecto. Nos especializamos en tacos tradicionales y premium, cortes de carne de primera calidad, hamburguesas gourmet y especialidades del mar.
+                </p>
+                <p class="about-text">
+                    Servimos con orgullo en un <span class="about-highlight">ambiente familiar y auténtico</span>, donde cada platillo es preparado con ingredientes frescos y el sazón tradicional que nos caracteriza. En SAJO, el gusto es verdaderamente el Rey del Asador.
+                </p>
+                <div class="mt-4">
+                    <a href="menu-principal.html" class="btn btn-primary btn-cta">
+                        <i class="fas fa-utensils"></i>
+                        <span>Conoce Nuestro Menú</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -290,8 +798,50 @@
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section id="location" class="location-section">
+    <!-- Payment Methods Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Métodos de Pago</h2>
+                <p class="section-subtitle animate-on-scroll">Múltiples opciones para tu comodidad</p>
+            </div>
+            
+            <div class="payment-grid">
+                <div class="payment-card animate-on-scroll" data-delay="0.1">
+                    <div class="payment-icon">💳</div>
+                    <h4 class="payment-title">Tarjetas</h4>
+                    <p class="payment-desc">Crédito y débito</p>
+                </div>
+                
+                <div class="payment-card animate-on-scroll" data-delay="0.2">
+                    <div class="payment-icon">💵</div>
+                    <h4 class="payment-title">Efectivo</h4>
+                    <p class="payment-desc">Pago en efectivo</p>
+                </div>
+                
+                <div class="payment-card animate-on-scroll" data-delay="0.3">
+                    <div class="payment-icon">📲</div>
+                    <h4 class="payment-title">Transferencia</h4>
+                    <p class="payment-desc">Bancaria digital</p>
+                </div>
+                
+                <div class="payment-card animate-on-scroll" data-delay="0.4">
+                    <div class="payment-icon">🔄</div>
+                    <h4 class="payment-title">Apps de Pago</h4>
+                    <p class="payment-desc">Clip, Mercado Pago</p>
+                </div>
+            </div>
+            
+            <div class="delivery-info animate-on-scroll">
+                <h4><i class="fas fa-motorcycle"></i> Servicio a Domicilio</h4>
+                <p><strong>Aceptamos múltiples métodos de pago y realizamos envíos a domicilio en zonas cercanas.</strong></p>
+                <p>Pregunta por la cobertura de entrega en tu área y disfruta de nuestros platillos desde la comodidad de tu hogar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Location Section -->
+    <section id="location" class="enhanced-location">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title animate-on-scroll">Nuestra Ubicación</h2>
@@ -330,28 +880,13 @@
                                 <p>246-141-1327</p>
                             </div>
                         </div>
-                        
-                        <div class="location-actions">
-                            <button class="btn btn-location-action btn-maps" onclick="openGoogleMaps()">
-                                <i class="fas fa-directions"></i>
-                                <span>Cómo Llegar</span>
-                            </button>
-                            <button class="btn btn-location-action btn-call" onclick="callRestaurant()">
-                                <i class="fas fa-phone"></i>
-                                <span>Llamar</span>
-                            </button>
-                            <button class="btn btn-location-action btn-whatsapp-location" onclick="openWhatsApp()">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>WhatsApp</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-6">
                     <div class="map-container animate-on-scroll" data-delay="0.2">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d-98.2!3d19.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzAwLjAiTiA5OMKwMTInMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d-98.2!3d19.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfdfd05e0c0605%3A0xf0b9e387c7d6dada!2sSAJO%20Grill%20%26%20Cocina!5e0!3m2!1ses!2smx!4v1234567890"
                             width="100%" 
                             height="400" 
                             style="border:0;" 
@@ -361,10 +896,23 @@
                         </iframe>
                         <div class="map-overlay">
                             <div class="map-info">
-                                <h6>SAJO Taquería</h6>
+                                <h6>SAJO Grill & Cocina</h6>
                                 <p>Centro, Tlaxcala</p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="map-actions">
+                        <a href="https://www.google.com/maps/place/SAJO+Grill+%26+Cocina/@19.3259836,-98.2383948,14z/data=!4m6!3m5!1s0x85cfdfd05e0c0605:0xf0b9e387c7d6dada!8m2!3d19.3350022!4d-98.1974992!16s%2Fg%2F11w34yjysk?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" 
+                           class="map-btn">
+                            <i class="fas fa-directions"></i>
+                            Abrir en Google Maps
+                        </a>
+                        <button class="map-btn secondary" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            Contactar por WhatsApp
+                        </button>
                     </div>
                 </div>
             </div>
@@ -474,5 +1022,73 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/animaciones.js"></script>
     <script src="js/main.js"></script>
+    
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+        
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        
+        const carousel = document.getElementById('promotionsCarousel');
+        
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1); // Swipe left - next slide
+                } else {
+                    changeSlide(-1); // Swipe right - previous slide
+                }
+            }
+        }
+    </script>
 </body>
 </html>
