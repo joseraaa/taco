@@ -6,6 +6,10 @@
     <title>Tacos Tradicionales y Premium - SAJO Taquería</title>
     <meta name="description" content="Los mejores tacos tradicionales y premium en SAJO Taquería. Todos con 60g de carne en crudo.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,17 +31,19 @@
             padding: 3rem 0;
             border-radius: 20px;
             margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .premium-section {
             background: linear-gradient(135deg, #fff 0%, #f8f4e6 100%);
             padding: 3rem 0;
             border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .section-divider {
             text-align: center;
-            margin: 4rem 0;
+            margin: 4rem 0 2rem 0;
             position: relative;
         }
         
@@ -47,72 +53,254 @@
             top: 50%;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(90deg, transparent, #D32F2F, transparent);
+            border-radius: 2px;
         }
         
         .section-divider h3 {
             background: white;
-            padding: 0 2rem;
+            padding: 0 3rem;
             display: inline-block;
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #D32F2F;
             position: relative;
             z-index: 2;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         .traditional-card {
             background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
-            border: 2px solid #FF8C00;
+            border: 3px solid #FF8C00;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+            position: relative;
         }
         
         .premium-card {
             background: linear-gradient(135deg, #fff 0%, #f8f4e6 100%);
-            border: 2px solid #8B4513;
+            border: 3px solid #8B4513;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+            position: relative;
         }
         
         .traditional-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
             background: linear-gradient(90deg, #FF8C00, #FFD700);
         }
         
         .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
             background: linear-gradient(90deg, #8B4513, #FFD700);
         }
         
+        .traditional-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(255, 140, 0, 0.4);
+            border-color: #FF6347;
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.4);
+            border-color: #A0522D;
+        }
+        
+        .menu-item-header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .menu-item-info {
+            flex: 1;
+        }
+        
+        .menu-item-info h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .menu-item-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .price-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .traditional-card .price-container {
+            border-color: #FF8C00;
+        }
+        
+        .premium-card .price-container {
+            border-color: #8B4513;
+        }
+        
         .traditional-price {
+            font-size: 2rem;
+            font-weight: 800;
             background: linear-gradient(45deg, #FF8C00, #FF6347);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .premium-price {
+            font-size: 2rem;
+            font-weight: 800;
             background: linear-gradient(45deg, #8B4513, #D2691E);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .traditional-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(45deg, #FF8C00, #FFD700);
             color: #8B4513;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+            z-index: 3;
         }
         
         .premium-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #8B4513;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            z-index: 3;
+        }
+        
+        .menu-item-actions {
+            padding: 1.5rem 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .action-btn {
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-favorite {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .btn-favorite:hover,
+        .btn-favorite.active {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.15);
+        }
+        
+        .btn-share {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+            border: 2px solid #25D366;
+        }
+        
+        .btn-share:hover {
+            background: #25D366;
+            color: white;
+            transform: scale(1.15);
+        }
+        
+        .btn-cart {
+            background: #D32F2F;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #D32F2F;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-cart:hover {
+            background: transparent;
+            color: #D32F2F;
+            transform: scale(1.05);
         }
         
         .tacos-note {
             background: linear-gradient(135deg, #D32F2F, #b71c1c);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             margin: 3rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
         }
         
         .tacos-note::before {
@@ -124,6 +312,42 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
+        }
+        
+        .tacos-note h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-item-header {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            
+            .price-container {
+                align-self: center;
+                min-width: 120px;
+            }
+            
+            .menu-item-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+                border-radius: 10px;
+                height: 50px;
+            }
+            
+            .section-divider h3 {
+                font-size: 2.2rem;
+                padding: 0 2rem;
+            }
         }
     </style>
 </head>
@@ -191,13 +415,15 @@
                     <!-- Arrachera -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Arrachera</h4>
-                                    <p class="menu-item-description">Clásico taco de arrachera jugosa</p>
+                                    <p class="menu-item-description">Clásico taco de arrachera jugosa y bien sazonada</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$36</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$36</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -216,13 +442,15 @@
                     <!-- Pollo -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Pollo</h4>
-                                    <p class="menu-item-description">Pechuga de pollo marinada y asada</p>
+                                    <p class="menu-item-description">Pechuga de pollo marinada y asada a la perfección</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$36</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$36</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -241,13 +469,15 @@
                     <!-- Chorizo argentino -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Chorizo Argentino</h4>
-                                    <p class="menu-item-description">Auténtico chorizo argentino</p>
+                                    <p class="menu-item-description">Auténtico chorizo argentino con especias tradicionales</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$36</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$36</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -266,13 +496,15 @@
                     <!-- Barriga -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Barriga</h4>
-                                    <p class="menu-item-description">Barriga de res jugosa y sabrosa</p>
+                                    <p class="menu-item-description">Barriga de res jugosa y llena de sabor</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$39</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -291,13 +523,15 @@
                     <!-- Chistorra -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Chistorra</h4>
-                                    <p class="menu-item-description">Embutido español tradicional</p>
+                                    <p class="menu-item-description">Embutido español tradicional con sabor único</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$39</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -316,13 +550,15 @@
                     <!-- Molleja -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Molleja</h4>
-                                    <p class="menu-item-description">Molleja tierna y bien sazonada</p>
+                                    <p class="menu-item-description">Molleja tierna y perfectamente sazonada</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$39</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -341,13 +577,15 @@
                     <!-- Costilla -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Costilla</h4>
-                                    <p class="menu-item-description">Costilla de res deshebrada</p>
+                                    <p class="menu-item-description">Costilla de res deshebrada con sabor intenso</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$39</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -366,13 +604,15 @@
                     <!-- Tripa -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card traditional-card menu-item-loading">
-                            <div class="traditional-badge kids-badge">Tradicional</div>
+                            <div class="traditional-badge">Tradicional</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Tripa</h4>
-                                    <p class="menu-item-description">Tripa dorada y crujiente</p>
+                                    <p class="menu-item-description">Tripa dorada y crujiente, un clásico mexicano</p>
                                 </div>
-                                <div class="menu-item-price traditional-price">$39</div>
+                                <div class="price-container">
+                                    <div class="traditional-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -400,13 +640,15 @@
                     <!-- T-Bone -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>T-Bone</h4>
-                                    <p class="menu-item-description">Corte premium T-Bone</p>
+                                    <p class="menu-item-description">Corte premium T-Bone con sabor excepcional</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$39</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -425,13 +667,15 @@
                     <!-- Rib Eye -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Rib Eye</h4>
-                                    <p class="menu-item-description">El rey de los cortes en taco</p>
+                                    <p class="menu-item-description">El rey de los cortes en formato taco</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$39</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -450,13 +694,15 @@
                     <!-- Picaña -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Picaña</h4>
-                                    <p class="menu-item-description">Corte brasileño premium</p>
+                                    <p class="menu-item-description">Corte brasileño premium con sabor único</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$39</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -475,13 +721,15 @@
                     <!-- Gaonera -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Gaonera</h4>
-                                    <p class="menu-item-description">Corte especial de la casa</p>
+                                    <p class="menu-item-description">Corte especial de la casa con sabor distintivo</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$39</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$39</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -500,13 +748,15 @@
                     <!-- Campechano de carne -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Campechano de Carne</h4>
-                                    <p class="menu-item-description">Mezcla de carnes premium</p>
+                                    <p class="menu-item-description">Mezcla perfecta de carnes premium</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$45</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$45</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -525,13 +775,15 @@
                     <!-- Volcán de carne -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Volcán de Carne</h4>
-                                    <p class="menu-item-description">Taco volcán con queso derretido</p>
+                                    <p class="menu-item-description">Taco volcán con queso derretido y carne premium</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$54</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$54</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -550,13 +802,15 @@
                     <!-- Tuétano -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Premium</div>
+                            <div class="premium-badge">Premium</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Tuétano (1 canoa)</h4>
-                                    <p class="menu-item-description">Delicioso tuétano asado</p>
+                                    <p class="menu-item-description">Delicioso tuétano asado en su canoa natural</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$55</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$55</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -575,13 +829,15 @@
                     <!-- Queso extra -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="menu-item-card premium-card menu-item-loading">
-                            <div class="premium-badge kids-badge">Extra</div>
+                            <div class="premium-badge">Extra</div>
                             <div class="menu-item-header">
                                 <div class="menu-item-info">
                                     <h4>Queso Extra</h4>
-                                    <p class="menu-item-description">Porción adicional de queso</p>
+                                    <p class="menu-item-description">Porción adicional de queso para tus tacos</p>
                                 </div>
-                                <div class="menu-item-price premium-price">$15</div>
+                                <div class="price-container">
+                                    <div class="premium-price">$15</div>
+                                </div>
                             </div>
                             <div class="menu-item-actions">
                                 <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">

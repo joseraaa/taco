@@ -6,6 +6,10 @@
     <title>Para los Santitos - SAJO Taquería</title>
     <meta name="description" content="Menú especial para niños en SAJO Taquería. Platillos deliciosos y apropiados para los más pequeños.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +28,12 @@
         
         .kids-card {
             background: linear-gradient(135deg, #fff 0%, #fff0f0 100%);
-            border: 2px solid #FF6B6B;
+            border: 3px solid #FF6B6B;
             position: relative;
             overflow: hidden;
+            border-radius: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
         
         .kids-card::before {
@@ -35,47 +42,186 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 6px;
             background: linear-gradient(90deg, #FF6B6B, #ff8a8a);
         }
         
         .kids-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.5);
+            border-color: #e55555;
+        }
+        
+        .menu-item-header {
+            padding: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        
+        .menu-item-info {
+            flex: 1;
+        }
+        
+        .menu-item-info h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FF6B6B;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .menu-item-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .price-container {
+            background: linear-gradient(135deg, #FF6B6B, #e55555);
+            color: white;
+            padding: 2rem;
+            border-radius: 25px;
+            text-align: center;
+            min-width: 140px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            border: 3px solid #ff8a8a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: priceShimmer 2s infinite;
+        }
+        
+        @keyframes priceShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         
         .kids-price {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #FF6B6B, #ff8a8a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
         
         .kids-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 2rem;
+            right: 2rem;
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #8B4513;
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.75rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            animation: kidsPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes kidsPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(2deg); }
+        }
+        
+        .menu-item-actions {
+            padding: 2.5rem 3rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid rgba(255, 107, 107, 0.2);
+            background: rgba(255, 240, 240, 0.8);
+        }
+        
+        .action-btn {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 3px solid;
+        }
+        
+        .btn-favorite {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            border-color: #ff6b6b;
+        }
+        
+        .btn-favorite:hover,
+        .btn-favorite.active {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+        
+        .btn-share {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+            border-color: #25D366;
+        }
+        
+        .btn-share:hover {
+            background: #25D366;
+            color: white;
+            transform: scale(1.2) rotate(-10deg);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+        }
+        
+        .btn-cart {
+            background: linear-gradient(45deg, #FF6B6B, #e55555);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: 3px solid #FF6B6B;
+            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-cart:hover {
+            background: transparent;
+            color: #FF6B6B;
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
         }
         
         .kids-note {
             background: linear-gradient(135deg, #FF6B6B, #e55555);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: 25px;
             margin: 3rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
         }
         
         .kids-note::before {
@@ -87,6 +233,13 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
+        }
+        
+        .kids-note h4 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
         }
         
         .floating-hearts {
@@ -126,6 +279,58 @@
         .heart:nth-child(7) { left: 70%; animation-delay: 0.5s; }
         .heart:nth-child(8) { left: 80%; animation-delay: 1.5s; }
         .heart:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+        
+        .kids-fun-section {
+            background: linear-gradient(135deg, #fff0f0, #ffe6e6);
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 3rem 0;
+            text-align: center;
+            border: 3px solid #FF6B6B;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+        
+        .kids-info {
+            background: rgba(255, 215, 0, 0.2);
+            color: #FF6B6B;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+            display: inline-block;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-item-header {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+                padding: 2.5rem;
+            }
+            
+            .price-container {
+                align-self: center;
+                min-width: 160px;
+            }
+            
+            .menu-item-actions {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2.5rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+                border-radius: 20px;
+                height: 70px;
+            }
+            
+            .kids-note {
+                padding: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,7 +397,7 @@
             <div class="kids-note">
                 <h4><i class="fas fa-heart"></i> Especial para Niños</h4>
                 <p><strong>Platillos pensados especialmente para los más pequeños</strong></p>
-                <p>Preparados con amor y los mejores ingredientes, perfectos para el paladar infantil.</p>
+                <p>Preparados con amor y los mejores ingredientes, perfectos para el paladar infantil y con porciones adecuadas.</p>
             </div>
 
             <!-- Menu Items Grid -->
@@ -204,9 +409,12 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Sabanita de Pollo</h4>
-                                <p class="menu-item-description">Suave pechuga de pollo envuelta en tortilla de harina, perfecta para los pequeños</p>
+                                <p class="menu-item-description">Suave pechuga de pollo envuelta en tortilla de harina suave, perfecta para los pequeños paladares.</p>
+                                <div class="kids-info">Porción infantil • Ingredientes suaves</div>
                             </div>
-                            <div class="menu-item-price kids-price">$80</div>
+                            <div class="price-container">
+                                <div class="kids-price">$80</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -229,9 +437,12 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Nuggets de Pollo</h4>
-                                <p class="menu-item-description">Tiernos nuggets de pollo empanizados, crujientes por fuera y suaves por dentro</p>
+                                <p class="menu-item-description">Tiernos nuggets de pollo empanizados, crujientes por fuera y suaves por dentro, el favorito de los niños.</p>
+                                <div class="kids-info">Porción infantil • Empanizado casero</div>
                             </div>
-                            <div class="menu-item-price kids-price">$80</div>
+                            <div class="price-container">
+                                <div class="kids-price">$80</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
@@ -249,14 +460,26 @@
             </div>
 
             <!-- Fun Section -->
-            <div class="text-center mt-5">
-                <div class="kids-fun-section">
-                    <h3 style="color: #FF6B6B; font-family: 'Dancing Script', cursive; font-size: 2.5rem;">
-                        🎈 ¡Los Santitos son Bienvenidos! 🎈
-                    </h3>
-                    <p style="font-size: 1.2rem; color: #666; margin-top: 1rem;">
-                        Tenemos sillas altas y un ambiente familiar perfecto para disfrutar en familia
-                    </p>
+            <div class="kids-fun-section">
+                <h3 style="color: #FF6B6B; font-family: 'Dancing Script', cursive; font-size: 3rem; margin-bottom: 1.5rem;">
+                    🎈 ¡Los Santitos son Bienvenidos! 🎈
+                </h3>
+                <p style="font-size: 1.3rem; color: #666; margin-bottom: 1.5rem; line-height: 1.6;">
+                    Tenemos sillas altas y un ambiente familiar perfecto para disfrutar en familia
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🪑</div>
+                        <p style="color: #FF6B6B; font-weight: 600;">Sillas Altas</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">👨‍👩‍👧‍👦</div>
+                        <p style="color: #FF6B6B; font-weight: 600;">Ambiente Familiar</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 0.5rem;">🍽️</div>
+                        <p style="color: #FF6B6B; font-weight: 600;">Porciones Perfectas</p>
+                    </div>
                 </div>
             </div>
 
