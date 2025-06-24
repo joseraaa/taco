@@ -20,6 +20,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .kids-hero {
@@ -34,6 +35,7 @@
             border-radius: 25px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            height: 100%;
         }
         
         .kids-card::before {
@@ -144,51 +146,10 @@
             padding: 2.5rem 3rem;
             display: flex;
             gap: 1.5rem;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             border-top: 2px solid rgba(255, 107, 107, 0.2);
             background: rgba(255, 240, 240, 0.8);
-        }
-        
-        .action-btn {
-            width: 60px;
-            height: 60px;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            border: 3px solid;
-        }
-        
-        .btn-favorite {
-            background: rgba(255, 107, 107, 0.2);
-            color: #ff6b6b;
-            border-color: #ff6b6b;
-        }
-        
-        .btn-favorite:hover,
-        .btn-favorite.active {
-            background: #ff6b6b;
-            color: white;
-            transform: scale(1.2) rotate(10deg);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
-        }
-        
-        .btn-share {
-            background: rgba(37, 211, 102, 0.2);
-            color: #25D366;
-            border-color: #25D366;
-        }
-        
-        .btn-share:hover {
-            background: #25D366;
-            color: white;
-            transform: scale(1.2) rotate(-10deg);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
         }
         
         .btn-cart {
@@ -203,6 +164,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            cursor: pointer;
+            width: 100%;
         }
         
         .btn-cart:hover {
@@ -321,12 +284,6 @@
                 padding: 2.5rem;
             }
             
-            .action-btn {
-                width: 100%;
-                border-radius: 20px;
-                height: 70px;
-            }
-            
             .kids-note {
                 padding: 2.5rem;
             }
@@ -417,13 +374,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Sabanita de Pollo para Niños', '$80')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Sabanita de Pollo para Niños', 80, 'Para los Santitos')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -445,13 +396,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Nuggets de Pollo para Niños', '$80')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Nuggets de Pollo para Niños', 80, 'Para los Santitos')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -517,5 +462,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

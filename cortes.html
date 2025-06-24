@@ -20,6 +20,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .premium-hero {
@@ -35,6 +36,7 @@
             border-radius: 20px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+            height: 100%;
         }
         
         .premium-card::before {
@@ -146,51 +148,10 @@
             padding: 2rem 2.5rem;
             display: flex;
             gap: 1rem;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             border-top: 2px solid rgba(139, 69, 19, 0.2);
             background: rgba(248, 244, 230, 0.8);
-        }
-        
-        .action-btn {
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            border: 3px solid;
-        }
-        
-        .btn-favorite {
-            background: rgba(255, 107, 107, 0.2);
-            color: #ff6b6b;
-            border-color: #ff6b6b;
-        }
-        
-        .btn-favorite:hover,
-        .btn-favorite.active {
-            background: #ff6b6b;
-            color: white;
-            transform: scale(1.2);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-        
-        .btn-share {
-            background: rgba(37, 211, 102, 0.2);
-            color: #25D366;
-            border-color: #25D366;
-        }
-        
-        .btn-share:hover {
-            background: #25D366;
-            color: white;
-            transform: scale(1.2);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
         
         .btn-cart {
@@ -205,6 +166,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+            cursor: pointer;
+            width: 100%;
         }
         
         .btn-cart:hover {
@@ -250,10 +213,6 @@
             line-height: 1.6;
         }
         
-        .premium-icon {
-            background: linear-gradient(135deg, #8B4513, #654321);
-        }
-        
         .weight-info {
             background: rgba(255, 215, 0, 0.2);
             color: #8B4513;
@@ -283,12 +242,6 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 padding: 2rem;
-            }
-            
-            .action-btn {
-                width: 100%;
-                border-radius: 15px;
-                height: 60px;
             }
             
             .premium-note {
@@ -368,13 +321,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Arrachera Premium 250g', '$290')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Arrachera Premium 250g', 290, 'Cortes Premium')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -396,13 +343,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('T-Bone Premium 250g', '$360')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('T-Bone Premium 250g', 360, 'Cortes Premium')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -424,13 +365,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Picaña Premium 250g', '$360')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Picaña Premium 250g', 360, 'Cortes Premium')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -452,13 +387,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Rib Eye Premium 250g', '$360')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Rib Eye Premium 250g', 360, 'Cortes Premium')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -500,5 +429,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

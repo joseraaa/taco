@@ -16,6 +16,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .birria-hero {
@@ -42,6 +43,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
         }
         
         .birria-card::before {
@@ -228,13 +230,7 @@
                             <div class="menu-item-price birria-price">$39</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Tacos de Birria de Res', '$39')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Tacos de Birria de Res', 39, 'Birria Tradicional')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -253,13 +249,7 @@
                             <div class="menu-item-price birria-price">$110</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Quesabirrias (Orden de 3)', '$110')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Quesabirrias (Orden de 3)', 110, 'Birria Tradicional')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -278,13 +268,7 @@
                             <div class="menu-item-price birria-price">$45</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Consomé de Birria', '$45')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Consomé de Birria', 45, 'Birria Tradicional')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -303,13 +287,7 @@
                             <div class="menu-item-price birria-price">$165</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Birria Estilo Jalisco (Plato Grande)', '$165')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Birria Estilo Jalisco (Plato Grande)', 165, 'Birria Tradicional')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -333,13 +311,7 @@
                                     <div class="menu-item-price birria-price">$55</div>
                                 </div>
                                 <div class="menu-item-actions">
-                                    <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                    <button class="action-btn btn-share" onclick="shareItem('Tacos Dorados de Birria', '$55')">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </button>
-                                    <button class="btn-cart">
+                                    <button class="btn-cart" onclick="addToCart('Tacos Dorados de Birria', 55, 'Birria Tradicional')">
                                         <i class="fas fa-plus"></i> Agregar
                                     </button>
                                 </div>
@@ -383,5 +355,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

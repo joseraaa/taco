@@ -20,6 +20,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .burger-hero {
@@ -57,6 +58,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
             position: relative;
+            height: 100%;
         }
         
         .burger-card:hover {
@@ -88,12 +90,13 @@
         }
         
         .menu-item-info h4 {
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             color: #FF6347;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .menu-item-description {
@@ -133,8 +136,8 @@
         }
         
         .burger-price {
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 900;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             position: relative;
@@ -167,51 +170,10 @@
             padding: 2rem 2.5rem;
             display: flex;
             gap: 1rem;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             border-top: 2px solid rgba(255, 140, 0, 0.2);
             background: rgba(255, 248, 240, 0.8);
-        }
-        
-        .action-btn {
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            border: 3px solid;
-        }
-        
-        .btn-favorite {
-            background: rgba(255, 107, 107, 0.2);
-            color: #ff6b6b;
-            border-color: #ff6b6b;
-        }
-        
-        .btn-favorite:hover,
-        .btn-favorite.active {
-            background: #ff6b6b;
-            color: white;
-            transform: scale(1.2);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-        
-        .btn-share {
-            background: rgba(37, 211, 102, 0.2);
-            color: #25D366;
-            border-color: #25D366;
-        }
-        
-        .btn-share:hover {
-            background: #25D366;
-            color: white;
-            transform: scale(1.2);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
         
         .btn-cart {
@@ -226,6 +188,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+            cursor: pointer;
+            width: 100%;
         }
         
         .btn-cart:hover {
@@ -264,12 +228,6 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 padding: 2rem;
-            }
-            
-            .action-btn {
-                width: 100%;
-                border-radius: 15px;
-                height: 60px;
             }
         }
     </style>
@@ -337,7 +295,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Choripán</h4>
-                                <p class="menu-item-description">Chorizo argentino premium en pan artesanal con chimichurri tradicional y vegetales frescos.</p>
+                                <p class="menu-item-description">Chorizo argentino, mostaza Dijon, chimichurri y papa waffle</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -345,13 +303,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Choripán Gourmet', '$99')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Choripán', 99, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -365,7 +317,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Avaricia</h4>
-                                <p class="menu-item-description">Hamburguesa con doble carne premium, quesos selectos y ingredientes gourmet que despiertan la codicia.</p>
+                                <p class="menu-item-description">Picaña o rib eye, queso gouda y cebolla caramelizada con salsa de soya<br>Acompañado de papa waffle</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -373,13 +325,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Avaricia', '$195')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Avaricia', 195, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -393,7 +339,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Envidia</h4>
-                                <p class="menu-item-description">La hamburguesa que todos querrán probar, con ingredientes únicos y sabores que generan envidia.</p>
+                                <p class="menu-item-description">Lonja de atún fresco, lechuga y cebolla caramelizada al vino tinto<br>Con papas a la francesa</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -401,13 +347,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Envidia', '$210')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Envidia', 210, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -421,7 +361,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Lujuria</h4>
-                                <p class="menu-item-description">Tentadora combinación de sabores intensos que despertará tus sentidos más profundos.</p>
+                                <p class="menu-item-description">Arrachera, aros de cebolla y lechuga<br>Con papas a la francesa</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -429,13 +369,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Lujuria', '$175')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Lujuria', 175, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -449,7 +383,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Soberbia</h4>
-                                <p class="menu-item-description">Hamburguesa imponente con los mejores ingredientes de la casa, digna de la realeza culinaria.</p>
+                                <p class="menu-item-description">Pollo empanizado bañado en salsa buffalo<br>Con ensalada fría, chips y papa waffle</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -457,13 +391,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Soberbia', '$195')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Soberbia', 195, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -477,7 +405,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Gula</h4>
-                                <p class="menu-item-description">Para los más hambrientos, una hamburguesa abundante y deliciosa que satisface todos los antojos.</p>
+                                <p class="menu-item-description">Arrachera y chorizo argentino<br>Con papas a la francesa</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -485,13 +413,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Gula', '$175')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Gula', 175, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -505,7 +427,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Ira</h4>
-                                <p class="menu-item-description">Hamburguesa picante que desatará tu pasión por los sabores intensos y explosivos.</p>
+                                <p class="menu-item-description">Camarón, queso gouda, salsa dinamita, tocino<br>Con papas a la francesa</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -513,13 +435,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Ira', '$210')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Ira', 210, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -533,7 +449,7 @@
                         <div class="menu-item-header">
                             <div class="menu-item-info">
                                 <h4>Pereza</h4>
-                                <p class="menu-item-description">La hamburguesa perfecta para relajarse y disfrutar sin prisa, con sabores que invitan al descanso.</p>
+                                <p class="menu-item-description">Pulpo, queso gouda, pimientos marinados<br>Con papa waffle</p>
                                 <div class="quality-info">Pan artesanal • Sin carne molida</div>
                             </div>
                             <div class="price-container">
@@ -541,13 +457,7 @@
                             </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Hamburguesa Pereza', '$250')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Hamburguesa Pereza', 250, 'Hamburguesas Gourmet')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -589,5 +499,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

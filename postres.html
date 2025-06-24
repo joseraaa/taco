@@ -16,6 +16,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .dessert-hero {
@@ -28,6 +29,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
         }
         
         .dessert-card::before {
@@ -237,13 +239,7 @@
                             <div class="menu-item-price dessert-price">$55</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Flan de Cajeta Casero', '$55')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Flan de Cajeta Casero', 55, 'Postres')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -263,13 +259,7 @@
                             <div class="menu-item-price dessert-price">$55</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Pan de Elote con Helado de Vainilla', '$55')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Pan de Elote con Helado de Vainilla', 55, 'Postres')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -289,13 +279,7 @@
                             <div class="menu-item-price dessert-price">$65</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Pastel de Chocolate Conejo Turin', '$65')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Pastel de Chocolate Conejo Turin', 65, 'Postres')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -315,13 +299,7 @@
                             <div class="menu-item-price dessert-price">$65</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Pastel de la Semana', '$65')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Pastel de la Semana', 65, 'Postres')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -345,13 +323,7 @@
                                     <div class="menu-item-price dessert-price">$85</div>
                                 </div>
                                 <div class="menu-item-actions">
-                                    <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                    <button class="action-btn btn-share" onclick="shareItem('Copa de Duraznos en Almíbar con Rompope', '$85')">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </button>
-                                    <button class="btn-cart">
+                                    <button class="btn-cart" onclick="addToCart('Copa de Duraznos en Almíbar con Rompope', 85, 'Postres')">
                                         <i class="fas fa-plus"></i> Agregar
                                     </button>
                                 </div>
@@ -395,5 +367,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

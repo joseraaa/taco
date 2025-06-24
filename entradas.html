@@ -16,6 +16,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <!-- Header -->
@@ -83,13 +84,7 @@
                             <div class="menu-item-price">$39</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Quesadilla de Queso', '$39')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Quesadilla de Queso', 39, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -107,13 +102,7 @@
                             <div class="menu-item-price">$45</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Aguacate', '$45')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Aguacate', 45, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -131,13 +120,7 @@
                             <div class="menu-item-price">$39</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Cebollitas', '$39')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Cebollitas', 39, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -155,13 +138,7 @@
                             <div class="menu-item-price">$50</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Papas a la Francesa', '$50')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Papas a la Francesa', 50, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -179,13 +156,7 @@
                             <div class="menu-item-price">$55</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Papas a la Diabla', '$55')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Papas a la Diabla', 55, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -203,13 +174,7 @@
                             <div class="menu-item-price">$110</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Queso Fundido con Carne', '$110')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Queso Fundido con Carne', 110, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -227,13 +192,7 @@
                             <div class="menu-item-price">$55</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Queso Panela Asado', '$55')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Queso Panela Asado', 55, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -251,13 +210,7 @@
                             <div class="menu-item-price">$60</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Queso Fundido', '$60')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Queso Fundido', 60, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -275,13 +228,7 @@
                             <div class="menu-item-price">$15</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Queso Extra', '$15')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Queso Extra', 15, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -299,13 +246,7 @@
                             <div class="menu-item-price">$19</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Chiles Toreados', '$19')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Chiles Toreados', 19, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -323,13 +264,7 @@
                             <div class="menu-item-price">$49</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Elotes Amarillos (2 pzas)', '$49')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Elotes Amarillos (2 pzas)', 49, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -347,13 +282,7 @@
                             <div class="menu-item-price">$49</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Aros de Cebolla', '$49')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Aros de Cebolla', 49, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -371,13 +300,7 @@
                             <div class="menu-item-price">$29</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Nopales Baby (4 pzas)', '$29')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Nopales Baby (4 pzas)', 29, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -395,13 +318,7 @@
                             <div class="menu-item-price">$28</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Empanada Argentina', '$28')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Empanada Argentina', 28, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -419,13 +336,7 @@
                             <div class="menu-item-price">$70</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Orden de Empanadas (3 pzas)', '$70')">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart">
+                            <button class="btn-cart" onclick="addToCart('Orden de Empanadas (3 pzas)', 70, 'Entradas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -467,5 +378,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>

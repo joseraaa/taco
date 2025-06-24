@@ -16,6 +16,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles.css" rel="stylesheet" type="text/css">
     <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    <link href="css/cart-styles.css" rel="stylesheet" type="text/css">
     
     <style>
         .grill-hero {
@@ -43,6 +44,7 @@
             color: white;
             box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
         }
         
         .grill-card::before {
@@ -283,13 +285,7 @@
                             <div class="menu-item-price grill-price">$460</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Parrillada Clásica', '$460')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada Clásica', 460, 'Parrilladas')" style="background: #D32F2F;">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -308,13 +304,7 @@
                             <div class="menu-item-price grill-price">$520</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Parrillada Mixta', '$520')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada Mixta', 520, 'Parrilladas')" style="background: #D32F2F;">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -333,13 +323,7 @@
                             <div class="menu-item-price grill-price">$540</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Parrillada del Mar', '$540')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada del Mar', 540, 'Parrilladas')" style="background: #D32F2F;">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -358,13 +342,7 @@
                             <div class="menu-item-price grill-price">$880</div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <button class="action-btn btn-share" onclick="shareItem('Parrillada para Dos Personas', '$880')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                            <button class="btn-cart" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada para Dos Personas', 880, 'Parrilladas')" style="background: #D32F2F;">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -388,13 +366,7 @@
                                     <div class="menu-item-price grill-price">$980</div>
                                 </div>
                                 <div class="menu-item-actions">
-                                    <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                    <button class="action-btn btn-share" onclick="shareItem('Parrillada Santitos (Especial Familiar)', '$980')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </button>
-                                    <button class="btn-cart" style="background: #D32F2F;">
+                                    <button class="btn-cart" onclick="addToCart('Parrillada Santitos (Especial Familiar)', 980, 'Parrilladas')" style="background: #D32F2F;">
                                         <i class="fas fa-plus"></i> Agregar
                                     </button>
                                 </div>
@@ -452,5 +424,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu-interactions.js"></script>
+    <script src="js/cart-system.js"></script>
 </body>
 </html>
