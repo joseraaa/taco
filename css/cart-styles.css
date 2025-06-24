@@ -112,11 +112,13 @@
     border-radius: 20px;
     width: 90%;
     max-width: 500px;
-    max-height: 80vh;
+    max-height: 85vh;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     transform: scale(0.9) translateY(20px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-modal.active .cart-modal-content {
@@ -132,6 +134,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    flex-shrink: 0;
 }
 
 .cart-header::before {
@@ -175,11 +178,12 @@
     transform: scale(1.1);
 }
 
-/* Cuerpo del modal */
+/* Cuerpo del modal - ÁREA SCROLLABLE */
 .cart-body {
     padding: 1.5rem;
-    max-height: 400px;
     overflow-y: auto;
+    flex: 1;
+    min-height: 0;
 }
 
 .cart-body::-webkit-scrollbar {
@@ -314,11 +318,15 @@
     transform: scale(1.1);
 }
 
-/* Footer del modal */
+/* Footer del modal - SIEMPRE VISIBLE */
 .cart-footer {
     background: #f8f9fa;
     padding: 1.5rem 2rem;
     border-top: 1px solid #eee;
+    flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
 
 .cart-total {
@@ -734,7 +742,7 @@
     
     .cart-modal-content {
         width: 95%;
-        max-height: 85vh;
+        max-height: 90vh;
     }
     
     .cart-header {
@@ -844,4 +852,65 @@
 
 .btn-cart:hover::before {
     left: 100%;
+}
+
+/* SOLUCIÓN ESPECÍFICA PARA ESCRITORIO - BOTÓN SIEMPRE VISIBLE */
+@media (min-width: 769px) {
+    .cart-modal-content {
+        max-height: 80vh;
+        min-height: 500px;
+    }
+    
+    .cart-body {
+        max-height: calc(80vh - 200px);
+        min-height: 200px;
+    }
+    
+    .cart-footer {
+        position: sticky;
+        bottom: 0;
+        background: #f8f9fa;
+        border-top: 2px solid #e9ecef;
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Asegurar que el footer nunca se oculte */
+    .cart-modal-content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cart-body {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+    }
+    
+    .cart-footer {
+        flex-shrink: 0;
+        z-index: 100;
+    }
+}
+
+/* Indicador visual cuando hay scroll disponible */
+.cart-body.has-scroll::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    display: block;
+    height: 20px;
+    background: linear-gradient(transparent, rgba(248, 249, 250, 0.9));
+    pointer-events: none;
+    margin: 0 -1.5rem -1.5rem -1.5rem;
+}
+
+/* Mejora en la separación visual del footer */
+.cart-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D32F2F, transparent);
 }
