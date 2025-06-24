@@ -3,6 +3,7 @@ class CartSystem {
     constructor() {
         this.cart = this.loadCart();
         this.whatsappNumber = "2461411327";
+        this.maxUrlLength = 2000; // Límite seguro para URLs de WhatsApp
         this.init();
     }
 
@@ -53,6 +54,9 @@ class CartSystem {
                         </button>
                         <button class="btn-whatsapp-order" onclick="cartSystem.sendWhatsAppOrder()">
                             <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                        </button>
+                        <button class="btn-copy-order" onclick="cartSystem.copyOrderToClipboard()" style="display: none;">
+                            <i class="fas fa-copy"></i> Copiar Pedido
                         </button>
                     </div>
                 </div>
@@ -190,6 +194,62 @@ class CartSystem {
         if (cartTotal) {
             cartTotal.textContent = this.getCartTotal().toFixed(0);
         }
+
+        // Mostrar/ocultar botón de copiar según el tamaño del pedido
+        this.updateOrderButtons();
+    }
+
+    // Actualizar botones de pedido según el tamaño
+    updateOrderButtons() {
+        const whatsappBtn = document.querySelector('.btn-whatsapp-order');
+        const copyBtn = document.querySelector('.btn-copy-order');
+        
+        if (!whatsappBtn || !copyBtn) return;
+
+        const message = this.generateOrderMessage();
+        const encodedMessage = encodeURIComponent(message);
+        const fullUrl = `https://wa.me/52${this.whatsappNumber}?text=${encodedMessage}`;
+
+        if (fullUrl.length > this.maxUrlLength) {
+            // Mensaje muy largo - mostrar ambos botones
+            whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i> WhatsApp (Resumido)';
+            copyBtn.style.display = 'flex';
+            this.showNotification('Pedido grande detectado. Usa "Copiar Pedido" para el mensaje completo.', 'info');
+        } else {
+            // Mensaje normal - solo WhatsApp
+            whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Pedir por WhatsApp';
+            copyBtn.style.display = 'none';
+        }
+    }
+
+    // Generar mensaje de pedido
+    generateOrderMessage(isShort = false) {
+        if (this.cart.length === 0) return '';
+
+        let message = "¡Hola! Quiero hacer un pedido:\n\n";
+        
+        if (isShort && this.cart.length > 6) {
+            // Versión resumida para URLs largas
+            const totalItems = this.getCartItemCount();
+            message += `📋 Pedido con ${totalItems} productos\n`;
+            message += `💰 Total: $${this.getCartTotal().toFixed(0)}\n\n`;
+            message += "📝 Detalles completos:\n";
+            message += "Por favor, solicita el desglose completo.\n\n";
+        } else {
+            // Versión completa
+            this.cart.forEach(item => {
+                const price = parseFloat(item.price.toString().replace('$', ''));
+                const subtotal = price * item.quantity;
+                message += `${item.quantity} x ${item.name} - $${price} = $${subtotal}\n`;
+            });
+            message += `\n💰 Total: $${this.getCartTotal().toFixed(0)}\n\n`;
+        }
+        
+        message += "👤 Nombre: [Por favor completa tu nombre]\n";
+        message += "📍 Dirección: [Si es para entrega a domicilio]\n";
+        message += "📝 Observaciones: [Alguna indicación especial]";
+        
+        return message;
     }
 
     // Abrir modal del carrito
@@ -211,31 +271,167 @@ class CartSystem {
         }
     }
 
-    // Enviar pedido por WhatsApp
+    // Enviar pedido por WhatsApp (optimizado)
     sendWhatsAppOrder() {
         if (this.cart.length === 0) {
             this.showNotification('Tu carrito está vacío', 'warning');
             return;
         }
 
-        let message = "¡Hola! Quiero hacer un pedido:\n\n";
+        const fullMessage = this.generateOrderMessage();
+        const encodedMessage = encodeURIComponent(fullMessage);
+        const fullUrl = `https://wa.me/52${this.whatsappNumber}?text=${encodedMessage}`;
+
+        let finalUrl;
         
-        this.cart.forEach(item => {
-            const price = parseFloat(item.price.toString().replace('$', ''));
-            const subtotal = price * item.quantity;
-            message += `${item.quantity} x ${item.name} - $${price} = $${subtotal}\n`;
-        });
+        if (fullUrl.length > this.maxUrlLength) {
+            // Usar versión resumida si es muy largo
+            const shortMessage = this.generateOrderMessage(true);
+            const shortEncodedMessage = encodeURIComponent(shortMessage);
+            finalUrl = `https://wa.me/52${this.whatsappNumber}?text=${shortEncodedMessage}`;
+            
+            this.showNotification('Enviando versión resumida. Usa "Copiar Pedido" para el detalle completo.', 'warning');
+        } else {
+            finalUrl = fullUrl;
+        }
         
-        message += `\nTotal: $${this.getCartTotal().toFixed(0)}\n\n`;
-        message += "Nombre: [Por favor completa tu nombre]\n";
-        message += "Dirección: [Si es para entrega a domicilio]\n";
-        message += "Observaciones: [Alguna indicación especial]";
+        // Intentar abrir WhatsApp
+        try {
+            window.open(finalUrl, '_blank');
+            this.showNotification('Abriendo WhatsApp...', 'success');
+        } catch (error) {
+            console.error('Error al abrir WhatsApp:', error);
+            this.showNotification('Error al abrir WhatsApp. Intenta copiar el pedido manualmente.', 'error');
+            this.copyOrderToClipboard();
+        }
+    }
+
+    // Copiar pedido al portapapeles
+    async copyOrderToClipboard() {
+        if (this.cart.length === 0) {
+            this.showNotification('Tu carrito está vacío', 'warning');
+            return;
+        }
+
+        const message = this.generateOrderMessage();
         
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/52${this.whatsappNumber}?text=${encodedMessage}`;
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                // Usar la API moderna del portapapeles
+                await navigator.clipboard.writeText(message);
+                this.showNotification('Pedido copiado al portapapeles', 'success');
+                this.showCopyInstructions();
+            } else {
+                // Fallback para navegadores más antiguos
+                this.fallbackCopyToClipboard(message);
+            }
+        } catch (error) {
+            console.error('Error al copiar:', error);
+            this.fallbackCopyToClipboard(message);
+        }
+    }
+
+    // Método de respaldo para copiar texto
+    fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
         
-        window.open(whatsappUrl, '_blank');
-        this.showNotification('Abriendo WhatsApp...', 'success');
+        try {
+            document.execCommand('copy');
+            this.showNotification('Pedido copiado al portapapeles', 'success');
+            this.showCopyInstructions();
+        } catch (error) {
+            console.error('Error en fallback copy:', error);
+            this.showNotification('No se pudo copiar automáticamente. Selecciona y copia manualmente.', 'error');
+            this.showManualCopyModal(text);
+        } finally {
+            document.body.removeChild(textArea);
+        }
+    }
+
+    // Mostrar instrucciones después de copiar
+    showCopyInstructions() {
+        const instructionsModal = document.createElement('div');
+        instructionsModal.className = 'copy-instructions-modal';
+        instructionsModal.innerHTML = `
+            <div class="copy-instructions-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="copy-instructions-content">
+                <div class="copy-instructions-header">
+                    <h4><i class="fas fa-info-circle"></i> Pedido Copiado</h4>
+                    <button onclick="this.closest('.copy-instructions-modal').remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="copy-instructions-body">
+                    <p><strong>¡Perfecto!</strong> Tu pedido ha sido copiado al portapapeles.</p>
+                    <div class="instructions-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span>Abre WhatsApp en tu teléfono o computadora</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span>Busca el contacto: <strong>246-141-1327</strong></span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span>Pega el mensaje copiado y envía</span>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="btn-open-whatsapp" onclick="window.open('https://wa.me/52${this.whatsappNumber}', '_blank')">
+                            <i class="fab fa-whatsapp"></i> Abrir WhatsApp Web
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(instructionsModal);
+        
+        // Auto-remover después de 10 segundos
+        setTimeout(() => {
+            if (instructionsModal.parentElement) {
+                instructionsModal.remove();
+            }
+        }, 10000);
+    }
+
+    // Mostrar modal para copia manual
+    showManualCopyModal(text) {
+        const manualModal = document.createElement('div');
+        manualModal.className = 'manual-copy-modal';
+        manualModal.innerHTML = `
+            <div class="manual-copy-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="manual-copy-content">
+                <div class="manual-copy-header">
+                    <h4><i class="fas fa-copy"></i> Copia Manual</h4>
+                    <button onclick="this.closest('.manual-copy-modal').remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="manual-copy-body">
+                    <p>Selecciona todo el texto y cópialo manualmente:</p>
+                    <textarea readonly class="manual-copy-text">${text}</textarea>
+                    <div class="manual-copy-actions">
+                        <button onclick="this.closest('.manual-copy-modal').remove()">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(manualModal);
+        
+        // Seleccionar automáticamente el texto
+        const textarea = manualModal.querySelector('.manual-copy-text');
+        textarea.focus();
+        textarea.select();
     }
 
     // Guardar carrito en localStorage
@@ -265,8 +461,8 @@ class CartSystem {
 
     // Sistema de notificaciones
     showNotification(message, type = 'info') {
-        // Remover notificaciones existentes
-        const existingNotifications = document.querySelectorAll('.cart-notification');
+        // Remover notificaciones existentes del mismo tipo
+        const existingNotifications = document.querySelectorAll(`.cart-notification-${type}`);
         existingNotifications.forEach(notification => notification.remove());
         
         const notification = document.createElement('div');
@@ -285,13 +481,16 @@ class CartSystem {
             notification.classList.add('show');
         }, 100);
         
-        // Remover después de 3 segundos
+        // Remover después de tiempo variable según el tipo
+        const duration = type === 'warning' || type === 'error' ? 5000 : 3000;
         setTimeout(() => {
             notification.classList.remove('show');
             setTimeout(() => {
-                notification.remove();
+                if (notification.parentElement) {
+                    notification.remove();
+                }
             }, 300);
-        }, 3000);
+        }, duration);
     }
 
     getNotificationIcon(type) {
@@ -309,6 +508,11 @@ class CartSystem {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeCartModal();
+                // Cerrar también modales de instrucciones
+                const instructionsModal = document.querySelector('.copy-instructions-modal');
+                const manualModal = document.querySelector('.manual-copy-modal');
+                if (instructionsModal) instructionsModal.remove();
+                if (manualModal) manualModal.remove();
             }
         });
 
