@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo - SAJO Taquería</title>
+    <meta name="description" content="Explora nuestro menú completo con entradas, cortes premium, tacos tradicionales, hamburguesas gourmet y especialidades del mar.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#location">Ubicación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Hero Section -->
+    <section class="menu-hero">
+        <div class="menu-hero-overlay"></div>
+        <div class="container">
+            <div class="menu-hero-content text-center">
+                <h1 class="menu-hero-title">
+                    <span class="title-main">Nuestro Menú</span>
+                    <span class="title-sub">Sabores que Conquistan</span>
+                </h1>
+                <p class="menu-hero-subtitle">Descubre cada categoría de nuestra carta gastronómica</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Categories Grid -->
+    <section class="menu-categories-section">
+        <div class="container">
+            <div class="menu-categories-grid">
+                <!-- Entradas -->
+                <div class="menu-category-card" data-category="entradas">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Entradas</h3>
+                        <p>Deliciosos aperitivos para comenzar tu experiencia</p>
+                        <span class="item-count">15 platillos</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="entradas.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Entradas
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sopas y Ensaladas -->
+                <div class="menu-category-card" data-category="sopas">
+                    <div class="category-icon">
+                        <i class="fas fa-bowl-food"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Sopas y Ensaladas</h3>
+                        <p>Opciones frescas y reconfortantes</p>
+                        <span class="item-count">7 platillos</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="sopas-ensaladas.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Sopas
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cortes -->
+                <div class="menu-category-card premium" data-category="cortes">
+                    <div class="category-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Cortes Premium</h3>
+                        <p>Los mejores cortes de carne, 250g cada uno</p>
+                        <span class="item-count">4 cortes</span>
+                        <span class="premium-badge">Premium</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="cortes.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Cortes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hamburguesas -->
+                <div class="menu-category-card" data-category="hamburguesas">
+                    <div class="category-icon">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Hamburguesas</h3>
+                        <p>Pan artesanal y carne de calidad, sin carne molida</p>
+                        <span class="item-count">8 hamburguesas</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="hamburguesas.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Hamburguesas
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Especialidades del Mar -->
+                <div class="menu-category-card ocean" data-category="mariscos">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Especialidades del Mar</h3>
+                        <p>Frescos sabores del océano</p>
+                        <span class="item-count">4 especialidades</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="mariscos.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Mariscos
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Para los Santitos -->
+                <div class="menu-category-card kids" data-category="ninos">
+                    <div class="category-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Para los Santitos</h3>
+                        <p>Platillos especiales para los más pequeños</p>
+                        <span class="item-count">2 platillos</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="ninos.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Menú Infantil
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tacos -->
+                <div class="menu-category-card featured" data-category="tacos">
+                    <div class="category-icon">
+                        <i class="fas fa-pepper-hot"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Tacos</h3>
+                        <p>Tradicionales y Premium, 60g en crudo</p>
+                        <span class="item-count">15+ variedades</span>
+                        <span class="featured-badge">Especialidad</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="tacos.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Tacos
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bebidas -->
+                <div class="menu-category-card" data-category="bebidas">
+                    <div class="category-icon">
+                        <i class="fas fa-cocktail"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Bebidas</h3>
+                        <p>Refrescantes opciones para acompañar</p>
+                        <span class="item-count">Variedad disponible</span>
+                    </div>
+                    <div class="category-overlay">
+                        <a href="bebidas.html" class="btn btn-category">
+                            <i class="fas fa-arrow-right"></i>
+                            Ver Bebidas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Ordenar por WhatsApp</h4>
+                            <p>Envía tu pedido directamente</p>
+                        </div>
+                        <button class="btn btn-action" onclick="openWhatsApp()">
+                            Ordenar Ahora
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Llamar al Restaurante</h4>
+                            <p>246-141-1327</p>
+                        </div>
+                        <button class="btn btn-action" onclick="callRestaurant()">
+                            Llamar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>Visítanos</h4>
+                            <p>Cómo llegar al restaurante</p>
+                        </div>
+                        <button class="btn btn-action" onclick="openGoogleMaps()">
+                            Ver Ubicación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entradas - SAJO Taquería</title>
+    <meta name="description" content="Deliciosas entradas para comenzar tu experiencia gastronómica en SAJO Taquería.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="entradas.html">Entradas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🍽️ Entradas</h1>
+            <p class="category-hero-subtitle">Deliciosos aperitivos para comenzar tu experiencia gastronómica</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Category Info -->
+            <div class="category-info">
+                <h3>Nuestras Entradas</h3>
+                <p>Cada entrada está preparada con ingredientes frescos y de la más alta calidad. Perfectas para compartir o disfrutar como aperitivo antes de tu platillo principal.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Quesadilla de queso -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Quesadilla de Queso</h4>
+                                <p class="menu-item-description">Tortilla de harina rellena de queso derretido, dorada a la perfección</p>
+                            </div>
+                            <div class="menu-item-price">$39</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Quesadilla de Queso', '$39')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de aguacate -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Aguacate</h4>
+                                <p class="menu-item-description">Aguacate fresco rebanado, perfecto acompañamiento</p>
+                            </div>
+                            <div class="menu-item-price">$45</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Aguacate', '$45')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de cebollitas -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Cebollitas</h4>
+                                <p class="menu-item-description">Cebollitas cambray asadas con sal y limón</p>
+                            </div>
+                            <div class="menu-item-price">$39</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Cebollitas', '$39')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papas a la francesa -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Papas a la Francesa</h4>
+                                <p class="menu-item-description">Papas cortadas en bastones, fritas hasta quedar doradas y crujientes</p>
+                            </div>
+                            <div class="menu-item-price">$50</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Papas a la Francesa', '$50')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papas a la diabla -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Papas a la Diabla</h4>
+                                <p class="menu-item-description">Papas fritas con salsa picante especial de la casa</p>
+                            </div>
+                            <div class="menu-item-price">$55</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Papas a la Diabla', '$55')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queso fundido con carne -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Queso Fundido con Carne</h4>
+                                <p class="menu-item-description">Queso derretido con trozos de carne asada, servido con tortillas</p>
+                            </div>
+                            <div class="menu-item-price">$110</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Queso Fundido con Carne', '$110')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queso panela asado -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Queso Panela Asado</h4>
+                                <p class="menu-item-description">Queso panela asado a la parrilla con hierbas aromáticas</p>
+                            </div>
+                            <div class="menu-item-price">$55</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Queso Panela Asado', '$55')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queso fundido -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Queso Fundido</h4>
+                                <p class="menu-item-description">Queso derretido tradicional, servido con tortillas calientes</p>
+                            </div>
+                            <div class="menu-item-price">$60</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Queso Fundido', '$60')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queso extra -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Queso Extra</h4>
+                                <p class="menu-item-description">Porción adicional de queso para acompañar tus platillos</p>
+                            </div>
+                            <div class="menu-item-price">$15</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Queso Extra', '$15')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de chiles toreados -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Chiles Toreados</h4>
+                                <p class="menu-item-description">Chiles jalapeños asados con cebolla y sal</p>
+                            </div>
+                            <div class="menu-item-price">$19</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Chiles Toreados', '$19')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de elotes amarillos -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Elotes Amarillos</h4>
+                                <p class="menu-item-description">2 piezas de elotes tiernos asados con mantequilla</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Elotes Amarillos (2 pzas)', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aros de cebolla -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Aros de Cebolla</h4>
+                                <p class="menu-item-description">Aros de cebolla empanizados y fritos hasta quedar dorados</p>
+                            </div>
+                            <div class="menu-item-price">$49</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Aros de Cebolla', '$49')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de nopales baby -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Nopales Baby</h4>
+                                <p class="menu-item-description">4 piezas de nopales tiernos asados con sal y limón</p>
+                            </div>
+                            <div class="menu-item-price">$29</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Nopales Baby (4 pzas)', '$29')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empanada argentina -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Empanada Argentina</h4>
+                                <p class="menu-item-description">Empanada tradicional argentina rellena de carne y especias</p>
+                            </div>
+                            <div class="menu-item-price">$28</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Empanada Argentina', '$28')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orden de empanadas -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card menu-item-loading">
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Orden de Empanadas</h4>
+                                <p class="menu-item-description">3 piezas de empanadas argentinas con diferentes rellenos</p>
+                            </div>
+                            <div class="menu-item-price">$70</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Orden de Empanadas (3 pzas)', '$70')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="sopas-ensaladas.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-bowl-food"></i>
+                            Sopas y Ensaladas
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>
