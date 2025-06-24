@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas - SAJO Taquería</title>
+    <meta name="description" content="Refrescantes bebidas para acompañar tu comida en SAJO Taquería. Aguas frescas, refrescos y más.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .drinks-hero {
+            background: linear-gradient(135deg, rgba(0, 150, 255, 0.9), rgba(0, 200, 150, 0.8));
+        }
+        
+        .drinks-card {
+            background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+            border: 2px solid #0096FF;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .drinks-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0096FF, #00C896);
+        }
+        
+        .drinks-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 150, 255, 0.3);
+        }
+        
+        .drinks-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #0096FF, #00C896);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .fresh-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #00C896, #0096FF);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .drinks-note {
+            background: linear-gradient(135deg, #0096FF, #0077CC);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .drinks-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="bebidas.html">Bebidas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero drinks-hero">
+        <div class="container">
+            <h1 class="category-hero-title">🥤 Bebidas Refrescantes</h1>
+            <p class="category-hero-subtitle">El complemento perfecto para tu experiencia gastronómica</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Drinks Note -->
+            <div class="drinks-note">
+                <h4><i class="fas fa-tint"></i> Frescura Garantizada</h4>
+                <p><strong>Bebidas preparadas al momento con ingredientes frescos</strong></p>
+                <p>Desde aguas frescas naturales hasta refrescos clásicos, tenemos la bebida perfecta para acompañar tu comida.</p>
+            </div>
+
+            <!-- Coming Soon Message -->
+            <div class="text-center py-5">
+                <div class="drinks-card menu-item-loading" style="max-width: 600px; margin: 0 auto; padding: 3rem;">
+                    <div class="fresh-badge">Próximamente</div>
+                    <h3 style="color: #0096FF; margin-bottom: 1.5rem;">
+                        <i class="fas fa-glass-cheers" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                        Carta de Bebidas
+                    </h3>
+                    <p style="color: #666; font-size: 1.1rem; line-height: 1.6;">
+                        Estamos preparando una selección especial de bebidas refrescantes para complementar perfectamente nuestros platillos. 
+                        <br><br>
+                        Mientras tanto, pregunta a nuestro personal por las opciones disponibles del día.
+                    </p>
+                    <div class="mt-4">
+                        <button class="btn btn-primary" onclick="openWhatsApp()" style="background: linear-gradient(45deg, #0096FF, #00C896); border: none; padding: 0.75rem 2rem; border-radius: 25px;">
+                            <i class="fab fa-whatsapp"></i> Consultar Disponibilidad
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="birria.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-fire"></i>
+                            Birria Tradicional
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birria Tradicional - SAJO Taquería</title>
+    <meta name="description" content="Auténtica birria estilo Jalisco en SAJO Taquería. Tacos de birria, quesabirrias y consomé tradicional.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .birria-hero {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(160, 82, 45, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wood" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23654321"/><path d="M0,50 Q25,40 50,50 T100,50" stroke="%238B4513" stroke-width="2" fill="none"/><path d="M0,25 Q25,15 50,25 T100,25" stroke="%23A0522D" stroke-width="1" fill="none"/><path d="M0,75 Q25,65 50,75 T100,75" stroke="%23A0522D" stroke-width="1" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23wood)"/></svg>');
+            background-size: cover;
+            position: relative;
+        }
+        
+        .birria-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.7), rgba(160, 82, 45, 0.5));
+        }
+        
+        .birria-card {
+            background: linear-gradient(135deg, #fff 0%, #fdf6e3 100%);
+            border: 3px solid #8B4513;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .birria-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #8B4513, #CD853F, #D2691E);
+        }
+        
+        .birria-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(139, 69, 19, 0.4);
+            border-color: #A0522D;
+        }
+        
+        .birria-price {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #8B4513, #CD853F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .traditional-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #CD853F, #D2691E);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(205, 133, 63, 0.4);
+            animation: traditionalPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes traditionalPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .birria-note {
+            background: linear-gradient(135deg, #8B4513, #654321);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #CD853F;
+        }
+        
+        .birria-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 4s infinite;
+        }
+        
+        .consomé-special {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            border: 2px solid #CD853F;
+        }
+        
+        .birria-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="paper" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23f4f1e8"/><circle cx="20" cy="20" r="1" fill="%23e8e0d0" opacity="0.5"/><circle cx="80" cy="40" r="1.5" fill="%23e8e0d0" opacity="0.3"/><circle cx="60" cy="80" r="1" fill="%23e8e0d0" opacity="0.4"/></pattern></defs><rect width="100" height="100" fill="url(%23paper)"/></svg>') repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .steam-animation {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: steam 2s ease-in-out infinite;
+        }
+        
+        @keyframes steam {
+            0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.7; }
+            50% { transform: translateX(-50%) translateY(-10px) scale(1.1); opacity: 0.4; }
+            100% { transform: translateX(-50%) translateY(-20px) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="birria.html">Birria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero birria-hero">
+        <div class="birria-texture"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 class="category-hero-title">🍲 Birria Tradicional</h1>
+            <p class="category-hero-subtitle">Auténtico sabor de Jalisco en cada bocado</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Birria Note -->
+            <div class="birria-note">
+                <div class="steam-animation">💨</div>
+                <h4><i class="fas fa-fire"></i> Tradición Jalisciense</h4>
+                <p><strong>Birria preparada con receta tradicional de Jalisco</strong></p>
+                <p>Carne de res cocida lentamente en consomé de chiles y especias secretas, siguiendo la auténtica tradición mexicana.</p>
+            </div>
+
+            <!-- Consomé Special Section -->
+            <div class="consomé-special">
+                <h4><i class="fas fa-bowl-hot"></i> El Consomé Perfecto</h4>
+                <p>Nuestro consomé de birria es el corazón de cada platillo. Preparado con más de 12 horas de cocción lenta, concentra todos los sabores y aromas que hacen única a la birria jalisciense.</p>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Tacos de birria -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card birria-card menu-item-loading">
+                        <div class="traditional-badge">Tradicional</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Tacos de Birria de Res</h4>
+                                <p class="menu-item-description">Tacos tradicionales rellenos de birria jugosa, servidos con consomé caliente</p>
+                            </div>
+                            <div class="menu-item-price birria-price">$39</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Tacos de Birria de Res', '$39')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quesabirrias -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card birria-card menu-item-loading">
+                        <div class="traditional-badge">Especial</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Quesabirrias (Orden de 3)</h4>
+                                <p class="menu-item-description">Tortillas rellenas de birria y queso derretido, doradas en el comal con consomé</p>
+                            </div>
+                            <div class="menu-item-price birria-price">$110</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Quesabirrias (Orden de 3)', '$110')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consomé de birria -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card birria-card menu-item-loading">
+                        <div class="traditional-badge">Esencial</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Consomé de Birria</h4>
+                                <p class="menu-item-description">Caldo concentrado de birria con cebolla, cilantro y limón</p>
+                            </div>
+                            <div class="menu-item-price birria-price">$45</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Consomé de Birria', '$45')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Birria estilo Jalisco -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card birria-card menu-item-loading">
+                        <div class="traditional-badge">Premium</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Birria Estilo Jalisco</h4>
+                                <p class="menu-item-description">Plato grande con birria tradicional, tortillas hechas a mano y consomé abundante</p>
+                            </div>
+                            <div class="menu-item-price birria-price">$165</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Birria Estilo Jalisco (Plato Grande)', '$165')">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tacos dorados de birria -->
+                <div class="col-lg-12 mb-4">
+                    <div class="menu-item-card birria-card menu-item-loading" style="background: linear-gradient(135deg, #fff 0%, #fff8dc 100%);">
+                        <div class="traditional-badge">Crujiente</div>
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="text-center" style="font-size: 4rem; color: #8B4513; padding: 2rem;">🌮</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-info">
+                                        <h4>Tacos Dorados de Birria</h4>
+                                        <p class="menu-item-description">Tacos de birria dorados hasta quedar crujientes, rellenos de carne deshebrada y queso derretido. Servidos con consomé caliente para sumergir. Una experiencia única que combina texturas crujientes y sabores intensos.</p>
+                                    </div>
+                                    <div class="menu-item-price birria-price">$55</div>
+                                </div>
+                                <div class="menu-item-actions">
+                                    <button class="action-btn btn-favorite" onclick="toggleFavorite(this)">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn btn-share" onclick="shareItem('Tacos Dorados de Birria', '$55')">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </button>
+                                    <button class="btn-cart">
+                                        <i class="fas fa-plus"></i> Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="parrilladas.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-fire"></i>
+                            Parrilladas
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>

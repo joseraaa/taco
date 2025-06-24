@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parrilladas - SAJO Taquería</title>
+    <meta name="description" content="Parrilladas para compartir en SAJO Taquería. Carnes asadas al carbón con el auténtico sabor del asador.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="menu-styles.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        .grill-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(64, 64, 64, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="charcoal" patternUnits="userSpaceOnUse" width="20" height="20"><rect width="20" height="20" fill="%231a1a1a"/><circle cx="5" cy="5" r="2" fill="%23333"/><circle cx="15" cy="15" r="1.5" fill="%23444"/><circle cx="10" cy="18" r="1" fill="%23555"/></pattern></defs><rect width="100" height="100" fill="url(%23charcoal)"/></svg>');
+            background-size: cover;
+            position: relative;
+        }
+        
+        .grill-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 26, 26, 0.8), rgba(211, 47, 47, 0.3));
+        }
+        
+        .grill-card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 3px solid #D32F2F;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .grill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #D32F2F, #FF6B35, #FFD700);
+        }
+        
+        .grill-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(211, 47, 47, 0.6);
+            border-color: #FF6B35;
+        }
+        
+        .grill-card:hover::before {
+            animation: fireGlow 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fireGlow {
+            0% { box-shadow: 0 0 10px rgba(211, 47, 47, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.8); }
+        }
+        
+        .grill-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #D32F2F, #FF6B35, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
+        }
+        
+        .fire-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, #D32F2F, #FF6B35);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+            animation: fireFlicker 2s ease-in-out infinite;
+        }
+        
+        @keyframes fireFlicker {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6); }
+        }
+        
+        .grill-note {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #D32F2F;
+        }
+        
+        .grill-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(211, 47, 47, 0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        .reservation-section {
+            background: linear-gradient(135deg, #D32F2F, #b71c1c);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-reservation {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-reservation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .btn-reservation:hover::before {
+            left: 100%;
+        }
+        
+        .btn-reservation:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+        
+        .grill-flames {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #D32F2F;
+            animation: flames 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes flames {
+            0%, 100% { transform: translateX(-50%) scale(1); color: #D32F2F; }
+            50% { transform: translateX(-50%) scale(1.1); color: #FF6B35; }
+        }
+        
+        .smoke-effect {
+            position: absolute;
+            top: -20px;
+            left: 20%;
+            width: 60%;
+            height: 40px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 50%;
+            animation: smoke 3s ease-in-out infinite;
+        }
+        
+        @keyframes smoke {
+            0% { transform: scale(1) translateY(0); opacity: 0.3; }
+            50% { transform: scale(1.2) translateY(-10px); opacity: 0.1; }
+            100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
+        }
+        
+        .menu-item-info h4 {
+            color: #FFD700;
+        }
+        
+        .menu-item-description {
+            color: #ccc !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="menu-header">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand logo-brand" href="index.html">
+                    <span class="logo-text">SAJO</span>
+                    <span class="logo-subtitle">Taquería</span>
+                </a>
+                
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu-principal.html">Menú</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="parrilladas.html">Parrilladas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Category Hero -->
+    <section class="category-hero grill-hero">
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 class="category-hero-title">🔥 Parrilladas</h1>
+            <p class="category-hero-subtitle">Donde el gusto es el Rey del Asador</p>
+        </div>
+    </section>
+
+    <!-- Category Content -->
+    <section class="category-content">
+        <div class="container">
+            <!-- Grill Note -->
+            <div class="grill-note">
+                <div class="grill-flames">🔥</div>
+                <h4><i class="fas fa-fire"></i> Maestría del Asador</h4>
+                <p><strong>Carnes asadas al carbón con técnica tradicional mexicana</strong></p>
+                <p>Cada parrillada es preparada con carbón de mezquite, dando ese sabor ahumado único que caracteriza al auténtico asador mexicano.</p>
+                <div class="smoke-effect"></div>
+            </div>
+
+            <!-- Menu Items Grid -->
+            <div class="row">
+                <!-- Parrillada clásica -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card grill-card menu-item-loading">
+                        <div class="fire-badge">Clásica</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Parrillada Clásica</h4>
+                                <p class="menu-item-description">Arrachera, chorizo argentino, cebollitas cambray y papas asadas al carbón</p>
+                            </div>
+                            <div class="menu-item-price grill-price">$460</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Parrillada Clásica', '$460')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart" style="background: #D32F2F;">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parrillada mixta -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card grill-card menu-item-loading">
+                        <div class="fire-badge">Mixta</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Parrillada Mixta</h4>
+                                <p class="menu-item-description">Pollo marinado, arrachera jugosa y rib eye premium con guarniciones</p>
+                            </div>
+                            <div class="menu-item-price grill-price">$520</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Parrillada Mixta', '$520')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart" style="background: #D32F2F;">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parrillada del mar -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card grill-card menu-item-loading">
+                        <div class="fire-badge">Del Mar</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Parrillada del Mar</h4>
+                                <p class="menu-item-description">Pulpo al ajillo, camarones gigantes y pescado fresco asados a la parrilla</p>
+                            </div>
+                            <div class="menu-item-price grill-price">$540</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Parrillada del Mar', '$540')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart" style="background: #D32F2F;">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parrillada para dos -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="menu-item-card grill-card menu-item-loading">
+                        <div class="fire-badge">Para Dos</div>
+                        <div class="menu-item-header">
+                            <div class="menu-item-info">
+                                <h4>Parrillada para Dos Personas</h4>
+                                <p class="menu-item-description">Selección premium de carnes y acompañamientos, perfecta para compartir</p>
+                            </div>
+                            <div class="menu-item-price grill-price">$880</div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn btn-share" onclick="shareItem('Parrillada para Dos Personas', '$880')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <button class="btn-cart" style="background: #D32F2F;">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parrillada Santitos -->
+                <div class="col-lg-12 mb-4">
+                    <div class="menu-item-card grill-card menu-item-loading" style="background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);">
+                        <div class="fire-badge">Familiar</div>
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="text-center" style="font-size: 5rem; color: #FFD700; padding: 2rem;">🍖</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="menu-item-header">
+                                    <div class="menu-item-info">
+                                        <h4>Parrillada Santitos</h4>
+                                        <p class="menu-item-description">La parrillada familiar más completa de la casa. Incluye una selección premium de carnes asadas, chorizo argentino, pollo marinado, arrachera, costillas BBQ, acompañada de guacamole, frijoles charros, tortillas hechas a mano y todas las salsas de la casa. Perfecta para compartir en familia y crear momentos inolvidables.</p>
+                                    </div>
+                                    <div class="menu-item-price grill-price">$980</div>
+                                </div>
+                                <div class="menu-item-actions">
+                                    <button class="action-btn btn-favorite" onclick="toggleFavorite(this)" style="background: rgba(211, 47, 47, 0.2); color: #D32F2F;">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn btn-share" onclick="shareItem('Parrillada Santitos (Especial Familiar)', '$980')" style="background: rgba(37, 211, 102, 0.2); color: #25D366;">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </button>
+                                    <button class="btn-cart" style="background: #D32F2F;">
+                                        <i class="fas fa-plus"></i> Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reservation Section -->
+            <div class="reservation-section">
+                <h3><i class="fas fa-calendar-alt"></i> ¿Parrillada para un Grupo Grande?</h3>
+                <p>Para grupos de más de 6 personas, te recomendamos hacer una reservación para garantizar la mejor experiencia y preparar tu parrillada con el tiempo necesario.</p>
+                <div class="mt-4">
+                    <button class="btn-reservation" onclick="openWhatsApp()">
+                        <i class="fas fa-phone"></i> Haz tu Reservación
+                    </button>
+                    <button class="btn-reservation ms-3" onclick="openWhatsApp()" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white;">
+                        <i class="fab fa-whatsapp"></i> Pide en Línea
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation to other categories -->
+            <div class="category-navigation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="postres.html" class="btn btn-outline-primary btn-lg w-100">
+                            <i class="fas fa-birthday-cake"></i>
+                            Postres
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="menu-principal.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver al Menú Principal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu-interactions.js"></script>
+</body>
+</html>
