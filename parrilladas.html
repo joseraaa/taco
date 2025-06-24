@@ -45,6 +45,7 @@
             box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
+            border-radius: 20px;
         }
         
         .grill-card::before {
@@ -72,35 +73,127 @@
             100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.8); }
         }
         
+        .menu-item-header {
+            padding: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        
+        .menu-item-info {
+            flex: 1;
+        }
+        
+        .menu-item-info h4 {
+            color: #FFD700;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .menu-item-description {
+            color: #ccc !important;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .price-container {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            border: 3px solid #FF6B35;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: priceShimmer 2s infinite;
+        }
+        
+        @keyframes priceShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
         .grill-price {
             font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #D32F2F, #FF6B35, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 10px rgba(211, 47, 47, 0.5);
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
         
         .fire-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(45deg, #D32F2F, #FF6B35);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
             animation: fireFlicker 2s ease-in-out infinite;
+            z-index: 3;
         }
         
         @keyframes fireFlicker {
-            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6); }
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6); }
+        }
+        
+        .menu-item-actions {
+            padding: 2rem 2.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            border-top: 2px solid rgba(255, 215, 0, 0.2);
+            background: rgba(42, 42, 42, 0.8);
+        }
+        
+        .btn-cart {
+            background: linear-gradient(45deg, #D32F2F, #b71c1c);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 3px solid #D32F2F;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.3);
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn-cart:hover {
+            background: transparent;
+            color: #FFD700;
+            border-color: #FFD700;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
         }
         
         .grill-note {
@@ -124,6 +217,13 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(211, 47, 47, 0.3), transparent);
             animation: shimmer 3s infinite;
+        }
+        
+        .grill-note h4 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
         }
         
         .reservation-section {
@@ -151,6 +251,7 @@
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
             position: relative;
             overflow: hidden;
+            margin: 0 0.5rem;
         }
         
         .btn-reservation::before {
@@ -172,6 +273,17 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
             background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+        
+        .btn-reservation.whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-reservation.whatsapp:hover {
+            background: linear-gradient(45deg, #128C7E, #0D7377);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
         }
         
         .grill-flames {
@@ -206,12 +318,30 @@
             100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
         }
         
-        .menu-item-info h4 {
-            color: #FFD700;
-        }
-        
-        .menu-item-description {
-            color: #ccc !important;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-item-header {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .price-container {
+                align-self: center;
+                min-width: 140px;
+            }
+            
+            .menu-item-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+            
+            .btn-reservation {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -282,10 +412,12 @@
                                 <h4>Parrillada Clásica</h4>
                                 <p class="menu-item-description">Arrachera, chorizo argentino, cebollitas cambray y papas asadas al carbón</p>
                             </div>
-                            <div class="menu-item-price grill-price">$460</div>
+                            <div class="price-container">
+                                <div class="grill-price">$460</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="btn-cart" onclick="addToCart('Parrillada Clásica', 460, 'Parrilladas')" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada Clásica', 460, 'Parrilladas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -301,10 +433,12 @@
                                 <h4>Parrillada Mixta</h4>
                                 <p class="menu-item-description">Pollo marinado, arrachera jugosa y rib eye premium con guarniciones</p>
                             </div>
-                            <div class="menu-item-price grill-price">$520</div>
+                            <div class="price-container">
+                                <div class="grill-price">$520</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="btn-cart" onclick="addToCart('Parrillada Mixta', 520, 'Parrilladas')" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada Mixta', 520, 'Parrilladas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -320,10 +454,12 @@
                                 <h4>Parrillada del Mar</h4>
                                 <p class="menu-item-description">Pulpo al ajillo, camarones gigantes y pescado fresco asados a la parrilla</p>
                             </div>
-                            <div class="menu-item-price grill-price">$540</div>
+                            <div class="price-container">
+                                <div class="grill-price">$540</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="btn-cart" onclick="addToCart('Parrillada del Mar', 540, 'Parrilladas')" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada del Mar', 540, 'Parrilladas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -339,10 +475,12 @@
                                 <h4>Parrillada para Dos Personas</h4>
                                 <p class="menu-item-description">Selección premium de carnes y acompañamientos, perfecta para compartir</p>
                             </div>
-                            <div class="menu-item-price grill-price">$880</div>
+                            <div class="price-container">
+                                <div class="grill-price">$880</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
-                            <button class="btn-cart" onclick="addToCart('Parrillada para Dos Personas', 880, 'Parrilladas')" style="background: #D32F2F;">
+                            <button class="btn-cart" onclick="addToCart('Parrillada para Dos Personas', 880, 'Parrilladas')">
                                 <i class="fas fa-plus"></i> Agregar
                             </button>
                         </div>
@@ -351,26 +489,28 @@
 
                 <!-- Parrillada Santitos -->
                 <div class="col-lg-12 mb-4">
-                    <div class="menu-item-card grill-card menu-item-loading" style="background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);">
+                    <div class="menu-item-card grill-card menu-item-loading">
                         <div class="fire-badge">Familiar</div>
                         <div class="row align-items-center">
                             <div class="col-md-3">
                                 <div class="text-center" style="font-size: 5rem; color: #FFD700; padding: 2rem;">🍖</div>
                             </div>
-                            <div class="col-md-9">
-                                <div class="menu-item-header">
-                                    <div class="menu-item-info">
-                                        <h4>Parrillada Santitos</h4>
-                                        <p class="menu-item-description">La parrillada familiar más completa de la casa. Incluye una selección premium de carnes asadas, chorizo argentino, pollo marinado, arrachera, costillas BBQ, acompañada de guacamole, frijoles charros, tortillas hechas a mano y todas las salsas de la casa. Perfecta para compartir en familia y crear momentos inolvidables.</p>
-                                    </div>
-                                    <div class="menu-item-price grill-price">$980</div>
-                                </div>
-                                <div class="menu-item-actions">
-                                    <button class="btn-cart" onclick="addToCart('Parrillada Santitos (Especial Familiar)', 980, 'Parrilladas')" style="background: #D32F2F;">
-                                        <i class="fas fa-plus"></i> Agregar
-                                    </button>
+                            <div class="col-md-7">
+                                <div class="menu-item-info" style="padding: 2rem;">
+                                    <h4>Parrillada Santitos</h4>
+                                    <p class="menu-item-description">La parrillada familiar más completa de la casa. Incluye una selección premium de carnes asadas, chorizo argentino, pollo marinado, arrachera, costillas BBQ, acompañada de guacamole, frijoles charros, tortillas hechas a mano y todas las salsas de la casa. Perfecta para compartir en familia y crear momentos inolvidables.</p>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="price-container" style="margin: 2rem;">
+                                    <div class="grill-price">$980</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="btn-cart" onclick="addToCart('Parrillada Santitos (Especial Familiar)', 980, 'Parrilladas')">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -384,7 +524,7 @@
                     <button class="btn-reservation" onclick="openWhatsApp()">
                         <i class="fas fa-phone"></i> Haz tu Reservación
                     </button>
-                    <button class="btn-reservation ms-3" onclick="openWhatsApp()" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white;">
+                    <button class="btn-reservation whatsapp" onclick="openWhatsApp()">
                         <i class="fab fa-whatsapp"></i> Pide en Línea
                     </button>
                 </div>

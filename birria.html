@@ -44,6 +44,7 @@
             box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
+            border-radius: 20px;
         }
         
         .birria-card::before {
@@ -62,34 +63,126 @@
             border-color: #A0522D;
         }
         
+        .menu-item-header {
+            padding: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        
+        .menu-item-info {
+            flex: 1;
+        }
+        
+        .menu-item-info h4 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #8B4513;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .price-container {
+            background: linear-gradient(135deg, #8B4513, #654321);
+            color: #FFD700;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 120px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            border: 3px solid #CD853F;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            animation: priceShimmer 2s infinite;
+        }
+        
+        @keyframes priceShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
         .birria-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #8B4513, #CD853F);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
         
         .traditional-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1.5rem;
+            right: 1.5rem;
             background: linear-gradient(45deg, #CD853F, #D2691E);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(205, 133, 63, 0.4);
+            box-shadow: 0 6px 20px rgba(205, 133, 63, 0.4);
             animation: traditionalPulse 3s ease-in-out infinite;
+            z-index: 3;
         }
         
         @keyframes traditionalPulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+        
+        .menu-item-actions {
+            padding: 2rem 2.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            border-top: 2px solid rgba(139, 69, 19, 0.2);
+            background: rgba(253, 246, 227, 0.8);
+        }
+        
+        .btn-cart {
+            background: linear-gradient(45deg, #8B4513, #654321);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 3px solid #8B4513;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn-cart:hover {
+            background: transparent;
+            color: #8B4513;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.5);
         }
         
         .birria-note {
@@ -115,6 +208,13 @@
             animation: shimmer 4s infinite;
         }
         
+        .birria-note h4 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
         .consomé-special {
             background: linear-gradient(135deg, #8B4513, #A0522D);
             color: white;
@@ -124,6 +224,12 @@
             text-align: center;
             position: relative;
             border: 2px solid #CD853F;
+        }
+        
+        .consomé-special h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
         
         .birria-texture {
@@ -151,6 +257,27 @@
             0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.7; }
             50% { transform: translateX(-50%) translateY(-10px) scale(1.1); opacity: 0.4; }
             100% { transform: translateX(-50%) translateY(-20px) scale(1.2); opacity: 0; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-item-header {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .price-container {
+                align-self: center;
+                min-width: 140px;
+            }
+            
+            .menu-item-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
         }
     </style>
 </head>
@@ -227,7 +354,9 @@
                                 <h4>Tacos de Birria de Res</h4>
                                 <p class="menu-item-description">Tacos tradicionales rellenos de birria jugosa, servidos con consomé caliente</p>
                             </div>
-                            <div class="menu-item-price birria-price">$39</div>
+                            <div class="price-container">
+                                <div class="birria-price">$39</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="btn-cart" onclick="addToCart('Tacos de Birria de Res', 39, 'Birria Tradicional')">
@@ -246,7 +375,9 @@
                                 <h4>Quesabirrias (Orden de 3)</h4>
                                 <p class="menu-item-description">Tortillas rellenas de birria y queso derretido, doradas en el comal con consomé</p>
                             </div>
-                            <div class="menu-item-price birria-price">$110</div>
+                            <div class="price-container">
+                                <div class="birria-price">$110</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="btn-cart" onclick="addToCart('Quesabirrias (Orden de 3)', 110, 'Birria Tradicional')">
@@ -265,7 +396,9 @@
                                 <h4>Consomé de Birria</h4>
                                 <p class="menu-item-description">Caldo concentrado de birria con cebolla, cilantro y limón</p>
                             </div>
-                            <div class="menu-item-price birria-price">$45</div>
+                            <div class="price-container">
+                                <div class="birria-price">$45</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="btn-cart" onclick="addToCart('Consomé de Birria', 45, 'Birria Tradicional')">
@@ -284,7 +417,9 @@
                                 <h4>Birria Estilo Jalisco</h4>
                                 <p class="menu-item-description">Plato grande con birria tradicional, tortillas hechas a mano y consomé abundante</p>
                             </div>
-                            <div class="menu-item-price birria-price">$165</div>
+                            <div class="price-container">
+                                <div class="birria-price">$165</div>
+                            </div>
                         </div>
                         <div class="menu-item-actions">
                             <button class="btn-cart" onclick="addToCart('Birria Estilo Jalisco (Plato Grande)', 165, 'Birria Tradicional')">
@@ -302,20 +437,22 @@
                             <div class="col-md-3">
                                 <div class="text-center" style="font-size: 4rem; color: #8B4513; padding: 2rem;">🌮</div>
                             </div>
-                            <div class="col-md-9">
-                                <div class="menu-item-header">
-                                    <div class="menu-item-info">
-                                        <h4>Tacos Dorados de Birria</h4>
-                                        <p class="menu-item-description">Tacos de birria dorados hasta quedar crujientes, rellenos de carne deshebrada y queso derretido. Servidos con consomé caliente para sumergir. Una experiencia única que combina texturas crujientes y sabores intensos.</p>
-                                    </div>
-                                    <div class="menu-item-price birria-price">$55</div>
-                                </div>
-                                <div class="menu-item-actions">
-                                    <button class="btn-cart" onclick="addToCart('Tacos Dorados de Birria', 55, 'Birria Tradicional')">
-                                        <i class="fas fa-plus"></i> Agregar
-                                    </button>
+                            <div class="col-md-7">
+                                <div class="menu-item-info" style="padding: 2rem;">
+                                    <h4>Tacos Dorados de Birria</h4>
+                                    <p class="menu-item-description">Tacos de birria dorados hasta quedar crujientes, rellenos de carne deshebrada y queso derretido. Servidos con consomé caliente para sumergir. Una experiencia única que combina texturas crujientes y sabores intensos.</p>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="price-container" style="margin: 2rem;">
+                                    <div class="birria-price">$55</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-actions">
+                            <button class="btn-cart" onclick="addToCart('Tacos Dorados de Birria', 55, 'Birria Tradicional')">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
